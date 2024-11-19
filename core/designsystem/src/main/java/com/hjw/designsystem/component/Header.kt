@@ -14,8 +14,8 @@ import com.hjw.designsystem.AppPreview
 
 @Composable
 fun Header(
+    title: String,
     modifier: Modifier = Modifier,
-    title: String = "",
     iconUrl: String = "",
     linkUrl: String = "",
 ) {
