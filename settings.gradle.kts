@@ -24,3 +24,4 @@ include(
     ":app",
     ":core:designsystem"
 )
+include(":app-catalog")
