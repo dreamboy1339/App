@@ -7,12 +7,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.hjw.designsystem.theme.ProductDisplayAppTheme
+import com.hjw.designsystem.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Catalog() {
-    ProductDisplayAppTheme {
+    AppTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
