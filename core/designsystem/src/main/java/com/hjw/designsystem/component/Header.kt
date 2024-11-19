@@ -20,7 +20,7 @@ fun Header(
     linkUrl: String = "",
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(6.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
