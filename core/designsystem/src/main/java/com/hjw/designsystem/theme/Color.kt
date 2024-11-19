@@ -1,4 +1,4 @@
-package com.hjw.app.ui.theme
+package com.hjw.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
