@@ -2,11 +2,8 @@ package com.hjw.designsystem.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.compose.AsyncImage
-import coil3.request.ImageRequest
-import coil3.request.crossfade
 import com.hjw.designsystem.AppPreview
 
 @Composable
@@ -15,10 +12,7 @@ fun ImageIcon(
     modifier: Modifier = Modifier,
 ) {
     AsyncImage(
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(iconUrl)
-            .crossfade(true)
-            .build(),
+        model = iconUrl,
         contentDescription = null,
         modifier = modifier
     )
