@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.IconText
+import com.hjw.designsystem.component.HeaderText
 
 @Composable
 fun Header(
@@ -28,7 +28,7 @@ fun Header(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconText(
+        HeaderText(
             modifier = Modifier.weight(1f),
             title = title,
             iconUrl = iconUrl,

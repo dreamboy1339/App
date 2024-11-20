@@ -9,15 +9,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
-fun IconText(
-    modifier: Modifier = Modifier,
+fun HeaderText(
     title: String = "",
     iconUrl: String = "",
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier,
@@ -26,10 +27,14 @@ fun IconText(
     ) {
         Text(
             text = title,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary
         )
+
         Spacer(modifier = Modifier.size(Spacing.xs))
+
         if (iconUrl.isNotBlank()) {
             ImageIcon(iconUrl = iconUrl)
         }
@@ -40,7 +45,7 @@ fun IconText(
 @Composable
 private fun IconTextPreview() {
     AppPreview {
-        IconText(
+        HeaderText(
             title = "클리어런스",
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
         )
