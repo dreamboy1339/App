@@ -27,10 +27,9 @@ fun Banner(
     total: Int,
     linkUrl: String,
     thumbnailUrl: String,
-    title: String,
-    description: String,
-    keyword: String,
-    subTitle: String = "$keyword | $description",
+    title: String = "",
+    description: String = "",
+    keyword: String = "",
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -47,7 +46,11 @@ fun Banner(
 
         BannerGuide(
             title = title,
-            subTitle = subTitle,
+            subTitle = if (keyword.isEmpty() && description.isEmpty()) {
+                ""
+            } else {
+                "$keyword | $description"
+            },
             index = index,
             total = total,
             modifier = modifier
@@ -69,21 +72,24 @@ private fun BannerGuide(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(modifier = Modifier.height(8.dp))
 
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleLarge,
-                color = White
-            )
+            if (title.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge,
+                    color = White
+                )
+            }
 
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = subTitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = White
-            )
+            if (subTitle.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = subTitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = White
+                )
+            }
 
             Spacer(modifier = Modifier.height(8.dp))
 
@@ -125,6 +131,19 @@ private fun BannerPreview() {
             title = "하이드아웃 S/S 시즌오프",
             description = "최대 30% 할인",
             keyword = "세일"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun BannerWithNoTitleAndDescriptionPreview() {
+    AppPreview {
+        Banner(
+            index = 99,
+            total = 99,
+            linkUrl = "https://www.musinsa.com/app/plan/views/22278",
+            thumbnailUrl = "https://image.msscdn.net/images/event_banner/2022062311154900000044053.jpg",
         )
     }
 }

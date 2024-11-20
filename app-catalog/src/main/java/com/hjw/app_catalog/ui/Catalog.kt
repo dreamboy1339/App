@@ -97,6 +97,14 @@ fun Catalog() {
                         keyword = "단독 세일",
                     )
                 }
+                item {
+                    Banner(
+                        index = 99,
+                        total = 99,
+                        linkUrl = "https://www.musinsa.com/app/campaign/index/junebeautyfull",
+                        thumbnailUrl = "https://image.msscdn.net/images/event_banner/2022061009432800000059650.jpg",
+                    )
+                }
             }
         }
     }
