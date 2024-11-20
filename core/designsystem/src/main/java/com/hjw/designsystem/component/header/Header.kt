@@ -35,7 +35,11 @@ fun Header(
         )
 
         if (linkUrl.isNotBlank()) {
-            Text(text = "전체", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.tertiary)
+            Text(
+                text = "전체",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.tertiary
+            )
         }
     }
 }
