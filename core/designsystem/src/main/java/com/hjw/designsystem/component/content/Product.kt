@@ -25,10 +25,7 @@ fun Product(
     hasCoupon: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .width(150.dp)
-    ) {
+    Column(modifier = modifier) {
         ProductImage(
             modifier = modifier,
             thumbnailUrl = thumbnailUrl,
@@ -90,6 +87,7 @@ private fun ProductPreview() {
             price = 39900,
             saleRate = 50,
             hasCoupon = true,
+            modifier = Modifier.width(150.dp)
         )
     }
 }
