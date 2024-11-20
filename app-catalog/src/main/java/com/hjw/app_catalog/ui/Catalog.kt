@@ -3,6 +3,7 @@ package com.hjw.app_catalog.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.Banner
 import com.hjw.designsystem.component.content.Product
+import com.hjw.designsystem.component.footer.Footer
 import com.hjw.designsystem.component.header.Header
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
@@ -131,6 +133,17 @@ fun Catalog() {
                         saleRate = 50,
                         hasCoupon = false,
                         modifier = Modifier.width(150.dp)
+                    )
+                }
+
+                item {
+                    Text(text = "Footer", style = MaterialTheme.typography.headlineLarge)
+                }
+                item {
+                    Footer(
+                        type = "refresh",
+                        title = "새로운 추천",
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
             }

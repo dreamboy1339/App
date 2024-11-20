@@ -29,9 +29,10 @@ fun Header(
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconText(
-            modifier = Modifier.weight(1f),
             title = title,
             iconUrl = iconUrl,
+            modifier = Modifier.weight(1f),
+            textStyle = MaterialTheme.typography.titleLarge,
         )
 
         if (linkUrl.isNotBlank()) {
