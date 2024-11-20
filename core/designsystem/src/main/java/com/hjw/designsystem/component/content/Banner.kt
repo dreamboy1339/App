@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.Black
+import com.hjw.designsystem.theme.Spacing
 import com.hjw.designsystem.theme.White
 
 @Composable
@@ -74,7 +75,7 @@ private fun BannerGuide(
         ) {
 
             if (title.isNotEmpty()) {
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(Spacing.s))
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
@@ -83,7 +84,7 @@ private fun BannerGuide(
             }
 
             if (subTitle.isNotEmpty()) {
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(Spacing.m))
                 Text(
                     text = subTitle,
                     style = MaterialTheme.typography.bodySmall,
@@ -91,7 +92,7 @@ private fun BannerGuide(
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(Spacing.s))
 
             Indicator(
                 index = index,

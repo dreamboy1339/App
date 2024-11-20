@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.theme.Spacing
 
 @Composable
 fun IconText(
@@ -29,7 +29,7 @@ fun IconText(
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary
         )
-        Spacer(modifier = Modifier.size(6.dp))
+        Spacer(modifier = Modifier.size(Spacing.xs))
         if (iconUrl.isNotBlank()) {
             ImageIcon(iconUrl = iconUrl)
         }
