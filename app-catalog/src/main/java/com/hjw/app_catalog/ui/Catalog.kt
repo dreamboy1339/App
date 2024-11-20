@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -13,6 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.Banner
 import com.hjw.designsystem.component.content.Product
 import com.hjw.designsystem.component.header.Header
@@ -117,6 +119,7 @@ fun Catalog() {
                         price = 39900,
                         saleRate = 50,
                         hasCoupon = true,
+                        modifier = Modifier.width(150.dp)
                     )
                 }
                 item {
@@ -127,6 +130,7 @@ fun Catalog() {
                         price = 39900,
                         saleRate = 50,
                         hasCoupon = false,
+                        modifier = Modifier.width(150.dp)
                     )
                 }
             }
