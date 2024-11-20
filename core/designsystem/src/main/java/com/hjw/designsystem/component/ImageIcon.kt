@@ -18,7 +18,7 @@ fun ImageIcon(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun ImageIconPreview() {
     AppPreview {

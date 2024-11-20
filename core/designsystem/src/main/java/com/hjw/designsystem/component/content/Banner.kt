@@ -120,7 +120,7 @@ private fun Indicator(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun BannerPreview() {
     AppPreview {
@@ -136,7 +136,7 @@ private fun BannerPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun BannerWithNoTitleAndDescriptionPreview() {
     AppPreview {

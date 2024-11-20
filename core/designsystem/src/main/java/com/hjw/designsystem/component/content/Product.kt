@@ -78,7 +78,7 @@ private fun ProductInfo(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun ProductPreview() {
     AppPreview {

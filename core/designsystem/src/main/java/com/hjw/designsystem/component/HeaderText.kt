@@ -41,7 +41,7 @@ fun HeaderText(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun IconTextPreview() {
     AppPreview {
