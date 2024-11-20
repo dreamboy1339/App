@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hjw.app"
+    namespace = "com.hjw.app_catalog"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.hjw.app"
+        applicationId = "com.hjw.app_catalog"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
