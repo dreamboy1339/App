@@ -13,8 +13,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.hjw.designsystem.component.Banner
-import com.hjw.designsystem.component.Header
+import com.hjw.designsystem.component.content.Banner
+import com.hjw.designsystem.component.header.Header
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
 

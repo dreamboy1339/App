@@ -1,4 +1,4 @@
-package com.hjw.designsystem.component
+package com.hjw.designsystem.component.content
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

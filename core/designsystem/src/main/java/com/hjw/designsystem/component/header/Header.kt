@@ -1,4 +1,4 @@
-package com.hjw.designsystem.component
+package com.hjw.designsystem.component.header
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.component.IconText
 
 @Composable
 fun Header(
