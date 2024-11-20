@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.hjw.designsystem.component.content.Banner
+import com.hjw.designsystem.component.content.Product
 import com.hjw.designsystem.component.header.Header
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
@@ -32,7 +33,7 @@ fun Catalog() {
                 )
             }
         ) { innerPadding ->
-            val modifier = Modifier.background(color = Color(0x27000000))
+            val modifier = Modifier.background(color = Color.White)
             LazyColumn(
                 modifier = Modifier
                     .padding(Spacing.s),
@@ -85,7 +86,6 @@ fun Catalog() {
                         keyword = "세일",
                     )
                 }
-
                 item {
                     Banner(
                         index = 99,
@@ -103,6 +103,30 @@ fun Catalog() {
                         total = 99,
                         linkUrl = "https://www.musinsa.com/app/campaign/index/junebeautyfull",
                         thumbnailUrl = "https://image.msscdn.net/images/event_banner/2022061009432800000059650.jpg",
+                    )
+                }
+
+                item {
+                    Text(text = "Product", style = MaterialTheme.typography.headlineLarge)
+                }
+                item {
+                    Product(
+                        linkUrl = "https://www.musinsa.com/app/goods/2281818",
+                        thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
+                        brandName = "아스트랄 프로젝션",
+                        price = 39900,
+                        saleRate = 50,
+                        hasCoupon = true,
+                    )
+                }
+                item {
+                    Product(
+                        linkUrl = "https://www.musinsa.com/app/goods/2281818",
+                        thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
+                        brandName = "아스트랄 프로젝션",
+                        price = 39900,
+                        saleRate = 50,
+                        hasCoupon = false,
                     )
                 }
             }

@@ -1,0 +1,147 @@
+package com.hjw.designsystem.component.content
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.theme.Blue
+import com.hjw.designsystem.theme.Orange
+
+@Composable
+fun Product(
+    linkUrl: String,
+    thumbnailUrl: String,
+    brandName: String,
+    price: Int,
+    saleRate: Int,
+    hasCoupon: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier
+            .width(150.dp)
+    ) {
+        ProductImage(
+            modifier = modifier,
+            thumbnailUrl = thumbnailUrl,
+            brandName = brandName,
+            hasCoupon = hasCoupon
+        )
+        ProductInfo(
+            modifier = modifier,
+            brandName = brandName,
+            price = price,
+            saleRate = saleRate
+        )
+    }
+}
+
+@Composable
+private fun ProductInfo(
+    brandName: String,
+    price: Int,
+    saleRate: Int,
+    modifier: Modifier,
+) {
+    Text(
+        modifier = modifier
+            .fillMaxWidth(),
+        text = brandName,
+        maxLines = 1,
+        style = MaterialTheme.typography.labelSmall,
+        color = MaterialTheme.colorScheme.tertiary
+    )
+
+    Row(
+        modifier = modifier
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = "${price}원",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(
+            text = "${saleRate}%",
+            style = MaterialTheme.typography.labelSmall,
+            color = Orange
+        )
+    }
+}
+
+@Composable
+private fun ProductImage(
+    modifier: Modifier,
+    thumbnailUrl: String,
+    brandName: String,
+    hasCoupon: Boolean,
+) {
+    Box(
+        modifier = modifier
+            .aspectRatio(0.8f)
+    ) {
+        AsyncImage(
+            contentScale = ContentScale.FillHeight,
+            model = thumbnailUrl,
+            contentDescription = brandName,
+            modifier = Modifier
+                .fillMaxSize()
+        )
+        if (hasCoupon) {
+            Coupon(
+                modifier = Modifier
+                    .align(Alignment.BottomStart)
+            )
+        }
+    }
+}
+
+@Composable
+private fun Coupon(modifier: Modifier) {
+    Box(
+        modifier = modifier
+            .wrapContentSize()
+            .background(Blue)
+            .padding(2.dp)
+    ) {
+        Text(
+            text = "쿠폰",
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.secondary
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ProductPreview() {
+    AppPreview {
+        Product(
+            linkUrl = "https://www.musinsa.com/app/goods/2281818",
+            thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
+            brandName = "아스트랄 프로젝션",
+            price = 39900,
+            saleRate = 50,
+            hasCoupon = true,
+        )
+    }
+}
