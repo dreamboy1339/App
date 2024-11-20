@@ -15,7 +15,7 @@ import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
-fun HeaderText(
+fun IconText(
     title: String = "",
     iconUrl: String = "",
     modifier: Modifier = Modifier,
@@ -45,7 +45,7 @@ fun HeaderText(
 @Composable
 private fun IconTextPreview() {
     AppPreview {
-        HeaderText(
+        IconText(
             title = "클리어런스",
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
         )
