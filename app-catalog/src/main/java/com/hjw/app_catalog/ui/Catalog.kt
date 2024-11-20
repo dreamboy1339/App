@@ -13,6 +13,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.hjw.designsystem.component.Banner
 import com.hjw.designsystem.component.Header
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
@@ -67,6 +68,33 @@ fun Catalog() {
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                         linkUrl = "https://www.musinsa.com"
+                    )
+                }
+
+                item {
+                    Text(text = "Banner", style = MaterialTheme.typography.headlineLarge)
+                }
+                item {
+                    Banner(
+                        index = 99,
+                        total = 99,
+                        linkUrl = "https://www.musinsa.com/app/plan/views/22278",
+                        thumbnailUrl = "https://image.msscdn.net/images/event_banner/2022062311154900000044053.jpg",
+                        title = "하이드아웃 S/S 시즌오프",
+                        description = "최대 30% 할인",
+                        keyword = "세일",
+                    )
+                }
+
+                item {
+                    Banner(
+                        index = 99,
+                        total = 99,
+                        linkUrl = "https://www.musinsa.com/app/plan/views/22272",
+                        thumbnailUrl = "https://image.msscdn.net/images/event_banner/2022062211292700000012174.jpg",
+                        title = "아모프레 22 핫 서머 인기상품",
+                        description = "단독 최대 10% 할인",
+                        keyword = "단독 세일",
                     )
                 }
             }
