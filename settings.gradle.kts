@@ -26,5 +26,6 @@ include(
     ":core:designsystem",
     ":core:common",
     ":network",
-    ":domain"
+    ":domain",
+    ":data"
 )
