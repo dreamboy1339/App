@@ -1,5 +1,6 @@
 package com.hjw.designsystem.component.content
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.hjw.common.decimalFormat
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.R
-import com.hjw.designsystem.theme.Orange
+import com.hjw.designsystem.theme.AppColor
 
 @Composable
 fun Product(
@@ -29,7 +30,10 @@ fun Product(
     hasCoupon: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+            .background(color = AppColor.White)
+    ) {
         ProductImage(
             modifier = modifier,
             thumbnailUrl = thumbnailUrl,
@@ -76,7 +80,7 @@ private fun ProductInfo(
         Text(
             text = stringSaleRate(saleRate),
             style = MaterialTheme.typography.labelSmall,
-            color = Orange
+            color = AppColor.Orange
         )
     }
 }
