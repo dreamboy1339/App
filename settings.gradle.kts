@@ -24,5 +24,6 @@ include(
     ":app",
     ":app-catalog",
     ":core:designsystem",
-    ":core:common"
+    ":core:common",
+    ":network",
 )
