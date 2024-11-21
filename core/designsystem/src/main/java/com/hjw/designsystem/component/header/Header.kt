@@ -29,6 +29,7 @@ fun Header(
         verticalAlignment = Alignment.CenterVertically
     ) {
         IconText(
+            rightIcon = true,
             title = title,
             iconUrl = iconUrl,
             modifier = Modifier.weight(1f),

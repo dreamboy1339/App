@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.Banner
 import com.hjw.designsystem.component.content.Product
 import com.hjw.designsystem.component.footer.Footer
+import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.header.Header
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
@@ -49,27 +50,27 @@ fun Catalog() {
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header",
                         modifier = modifier
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with icon",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with link",
                         modifier = modifier,
                         linkUrl = "https://www.musinsa.com"
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with icon & link",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                         linkUrl = "https://www.musinsa.com"
@@ -141,8 +142,15 @@ fun Catalog() {
                 }
                 item {
                     Footer(
-                        type = "refresh",
+                        type = FooterType.REFRESH,
                         title = "새로운 추천",
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+                item {
+                    Footer(
+                        type = FooterType.MORE,
+                        title = "더보기",
                         modifier = Modifier.fillMaxWidth()
                     )
                 }

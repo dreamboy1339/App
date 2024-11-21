@@ -10,10 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.hjw.common.decimalFormat
 import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.R
 import com.hjw.designsystem.theme.Orange
 
 @Composable
@@ -66,17 +69,23 @@ private fun ProductInfo(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = "${price}원",
+            text = stringPrice(price),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.primary
         )
         Text(
-            text = "${saleRate}%",
+            text = stringSaleRate(saleRate),
             style = MaterialTheme.typography.labelSmall,
             color = Orange
         )
     }
 }
+
+@Composable
+private fun stringPrice(price: Int) = stringResource(R.string.txt_price_won, price.decimalFormat())
+
+@Composable
+private fun stringSaleRate(saleRate: Int) = stringResource(R.string.txt_sale_rate, saleRate)
 
 @Preview(showBackground = true)
 @Composable
