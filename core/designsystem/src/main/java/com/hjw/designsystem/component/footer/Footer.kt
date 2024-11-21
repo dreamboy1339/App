@@ -20,7 +20,7 @@ import com.hjw.designsystem.theme.White
 
 @Composable
 fun Footer(
-    type: String,
+    type: FooterType,
     title: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
@@ -39,7 +39,7 @@ fun Footer(
         onClick = onClick
     ) {
         IconText(
-            leftIcon = type.equals("refresh", ignoreCase = true),
+            leftIcon = (type == FooterType.REFRESH),
             title = title,
             titleColor = Black,
             modifier = Modifier.wrapContentSize(),
@@ -53,7 +53,7 @@ fun Footer(
 private fun FooterRefreshPreview() {
     AppPreview {
         Footer(
-            type = "refresh",
+            type = FooterType.REFRESH,
             title = "새로운 추천",
             modifier = Modifier.fillMaxWidth()
         )
@@ -65,7 +65,7 @@ private fun FooterRefreshPreview() {
 private fun FooterMorePreview() {
     AppPreview {
         Footer(
-            type = "more",
+            type = FooterType.MORE,
             title = "더보기",
             modifier = Modifier.fillMaxWidth()
         )
