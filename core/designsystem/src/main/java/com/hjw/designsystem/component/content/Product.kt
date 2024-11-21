@@ -1,9 +1,12 @@
 package com.hjw.designsystem.component.content
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,7 +20,8 @@ import androidx.compose.ui.unit.dp
 import com.hjw.common.decimalFormat
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.R
-import com.hjw.designsystem.theme.Orange
+import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.Spacing
 
 @Composable
 fun Product(
@@ -29,13 +33,17 @@ fun Product(
     hasCoupon: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier
+            .background(color = AppColor.White)
+    ) {
         ProductImage(
             modifier = modifier,
             thumbnailUrl = thumbnailUrl,
             brandName = brandName,
             hasCoupon = hasCoupon
         )
+        Spacer(modifier = Modifier.height(Spacing.xs))
         ProductInfo(
             modifier = modifier,
             brandName = brandName,
@@ -76,7 +84,7 @@ private fun ProductInfo(
         Text(
             text = stringSaleRate(saleRate),
             style = MaterialTheme.typography.labelSmall,
-            color = Orange
+            color = AppColor.Orange
         )
     }
 }

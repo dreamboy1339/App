@@ -14,9 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.component.IconText
-import com.hjw.designsystem.theme.Black
-import com.hjw.designsystem.theme.Gray
-import com.hjw.designsystem.theme.White
+import com.hjw.designsystem.theme.AppColor
 
 @Composable
 fun Footer(
@@ -28,20 +26,20 @@ fun Footer(
     Button(
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = White,
-            contentColor = Gray
+            containerColor = AppColor.White,
+            contentColor = AppColor.Gray
         ),
         shape = RoundedCornerShape(18.dp),
         border = BorderStroke(
             width = 1.dp,
-            color = Gray
+            color = AppColor.Gray
         ),
         onClick = onClick
     ) {
         IconText(
             leftIcon = (type == FooterType.REFRESH),
             title = title,
-            titleColor = Black,
+            titleColor = AppColor.Black,
             modifier = Modifier.wrapContentSize(),
             textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
         )

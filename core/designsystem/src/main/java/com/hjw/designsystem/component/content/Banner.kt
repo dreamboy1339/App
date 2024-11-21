@@ -18,9 +18,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.theme.Black
+import com.hjw.designsystem.theme.AppColor
 import com.hjw.designsystem.theme.Spacing
-import com.hjw.designsystem.theme.White
 
 @Composable
 fun Banner(
@@ -79,7 +78,7 @@ private fun BannerGuide(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
-                    color = White
+                    color = AppColor.White
                 )
             }
 
@@ -88,7 +87,7 @@ private fun BannerGuide(
                 Text(
                     text = subTitle,
                     style = MaterialTheme.typography.bodySmall,
-                    color = White
+                    color = AppColor.White
                 )
             }
 
@@ -99,7 +98,7 @@ private fun BannerGuide(
                 total = total,
                 modifier = Modifier
                     .align(Alignment.End)
-                    .background(Black.copy(alpha = 0.5f))
+                    .background(AppColor.Black_Opaque)
                     .padding(horizontal = 16.dp, vertical = 6.dp)
             )
         }
@@ -116,7 +115,7 @@ private fun Indicator(
         modifier = modifier,
         text = "$index / $total",
         style = MaterialTheme.typography.labelSmall,
-        color = White
+        color = AppColor.White
     )
 }
 
