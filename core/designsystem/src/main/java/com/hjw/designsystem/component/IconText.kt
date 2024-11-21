@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.Black
+import com.hjw.designsystem.theme.Size
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
@@ -53,7 +54,10 @@ fun IconText(
 
         if (rightIcon && iconUrl.isNotBlank()) {
             Spacer(modifier = Modifier.size(Spacing.xs))
-            ImageIcon(iconUrl = iconUrl)
+            ImageIcon(
+                iconUrl = iconUrl,
+                modifier = Modifier.size(Size.s)
+            )
         }
     }
 }
