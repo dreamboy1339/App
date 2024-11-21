@@ -22,6 +22,7 @@ dependencyResolutionManagement {
 rootProject.name = "App"
 include(
     ":app",
-    ":core:designsystem"
+    ":app-catalog",
+    ":core:designsystem",
+    ":core:common"
 )
-include(":app-catalog")
