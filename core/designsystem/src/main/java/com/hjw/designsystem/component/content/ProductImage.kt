@@ -64,12 +64,25 @@ private fun Coupon(modifier: Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-private fun ProductImagePreview() {
+private fun ProductImageWithCouponPreview() {
     AppPreview {
         ProductImage(
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
             brandName = "아스트랄 프로젝션",
             hasCoupon = true,
+            modifier = Modifier.width(150.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProductImageWithNoCouponPreview() {
+    AppPreview {
+        ProductImage(
+            thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
+            brandName = "아스트랄 프로젝션",
+            hasCoupon = false,
             modifier = Modifier.width(150.dp)
         )
     }
