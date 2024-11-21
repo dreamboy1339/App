@@ -23,13 +23,13 @@ import com.hjw.designsystem.theme.Spacing
 
 @Composable
 fun IconText(
+    textStyle: TextStyle,
     leftIcon: Boolean = false,
     title: String = "",
     rightIcon: Boolean = false,
     iconUrl: String = "",
     titleColor: Color = MaterialTheme.colorScheme.primary,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle,
 ) {
     Row(
         modifier = modifier,
