@@ -15,7 +15,21 @@ drawing by https://excalidraw.com/
 ```
 root
 |   
-└── app         // app 모듈
+├── app                     // 앱 모듈 
+|   
+├── app-catalog             // 디자인 시스템 기반 카탈로그 앱(디자인 컴포넌트 확인용) 
+|   
+├── network                 // 네트워크, API 인터페이스
+|   
+├── data                    // 데이터 모델, 레포지토리 구현, 데이터 소스
+|   
+├── domain                  // 도메인 모델, 도메인 유즈케이스, 레포지토리 인터페이스
+|   
+└── core ┐
+         |
+         ├── common         // 공통 모듈
+         |
+         └── designsystem   // 디자인 시스템 모듈
 ```
 
 ## 주요 기능
