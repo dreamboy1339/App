@@ -50,27 +50,27 @@ fun Catalog() {
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header",
                         modifier = modifier
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with icon",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with link",
                         modifier = modifier,
                         linkUrl = "https://www.musinsa.com"
                     )
                 }
                 item {
                     Header(
-                        title = "클리어런스",
+                        title = "Header with icon & link",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                         linkUrl = "https://www.musinsa.com"
