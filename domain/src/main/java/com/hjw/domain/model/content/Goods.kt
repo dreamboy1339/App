@@ -11,4 +11,4 @@ data class Product(
     val hasCoupon: Boolean,
 ) : Content
 
-class Goods(goodsList: List<Product>) : List<Product> by goodsList
+class Goods(productList: List<Product>) : List<Product> by productList

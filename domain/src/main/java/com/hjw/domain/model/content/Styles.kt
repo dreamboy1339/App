@@ -7,4 +7,4 @@ data class Style(
     val thumbnailUrl: String,
 ) : Content
 
-class Styles(styleList: List<Styles>) : List<Styles> by styleList
+class Styles(styleList: List<Style>) : List<Style> by styleList
