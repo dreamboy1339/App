@@ -1,4 +1,4 @@
-package com.hjw.app.ui.common
+package com.hjw.domain.common
 
 enum class ContentType {
     NONE,

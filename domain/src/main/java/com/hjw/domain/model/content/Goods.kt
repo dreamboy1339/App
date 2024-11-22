@@ -1,6 +1,6 @@
-package com.hjw.app.ui.model.content
+package com.hjw.domain.model.content
 
-import com.hjw.app.ui.model.Content
+import com.hjw.domain.model.Content
 
 data class Product(
     val linkUrl: String,
