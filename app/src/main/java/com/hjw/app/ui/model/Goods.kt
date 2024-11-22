@@ -9,4 +9,4 @@ data class Product(
     val hasCoupon: Boolean,
 ) : Content
 
-class Goods(private val goodsList: List<Product>) : List<Product> by goodsList
+class Goods(goodsList: List<Product>) : List<Product> by goodsList

@@ -8,4 +8,4 @@ data class Banner(
     val keyword: String,
 ):Content
 
-class Banners(private val bannerList: List<Banner>) : List<Banner> by bannerList
+class Banners(bannerList: List<Banner>) : List<Banner> by bannerList

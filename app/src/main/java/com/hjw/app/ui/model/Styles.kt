@@ -5,4 +5,4 @@ data class Style(
     val thumbnailUrl: String,
 ) : Content
 
-class Styles(private val styleList: List<Styles>) : List<Styles> by styleList
+class Styles(styleList: List<Styles>) : List<Styles> by styleList

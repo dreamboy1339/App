@@ -5,3 +5,5 @@ data class Widget(
     val footer: Footer? = null,
     val contents: Contents,
 )
+
+class Widgets(widgetList: List<Widget>) : List<Widget> by widgetList
