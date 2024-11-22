@@ -7,8 +7,11 @@ import com.hjw.domain.model.Footer
 import com.hjw.domain.model.Header
 import com.hjw.domain.model.Widget
 import com.hjw.domain.model.Widgets
+import com.hjw.domain.model.content.Banner
+import com.hjw.domain.model.content.Banners
 import com.hjw.domain.repository.WidgetRepository
 import com.hjw.network.model.ApiResponse
+import com.hjw.network.model.BannerData
 import com.hjw.network.model.ContentsData
 import com.hjw.network.model.FooterData
 import com.hjw.network.model.HeaderData
@@ -47,15 +50,32 @@ private fun ApiResponse.toWidgets(): Widgets {
 
 private fun ContentsData.toContents(): Contents {
     val contentType = ContentType.from(type = type)
-    val contentList = when (contentType) {
-        ContentType.NONE -> emptyList<Content>()
-        ContentType.BANNER -> TODO()
+    val contentList: List<Content> = when (contentType) {
+        ContentType.NONE -> emptyList()
+        ContentType.BANNER -> {
+            bannerDatas?.toBanners() ?: emptyList()
+        }
+
         ContentType.GRID -> TODO()
         ContentType.SCROLL -> TODO()
         ContentType.STYLE -> TODO()
     }
     return Contents(
         contentList = contentList
+    )
+}
+
+fun List<BannerData>.toBanners(): Banners {
+    return Banners(
+        bannerList = map {
+            Banner(
+                linkUrl = it.linkUrl,
+                thumbnailUrl = it.thumbnailUrl,
+                title = it.title,
+                description = it.description,
+                keyword = it.keyword,
+            )
+        }
     )
 }
 
