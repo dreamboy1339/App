@@ -11,6 +11,8 @@ import com.hjw.domain.model.content.Banner
 import com.hjw.domain.model.content.Banners
 import com.hjw.domain.model.content.Goods
 import com.hjw.domain.model.content.Product
+import com.hjw.domain.model.content.Style
+import com.hjw.domain.model.content.Styles
 import com.hjw.domain.repository.WidgetRepository
 import com.hjw.network.model.ApiResponse
 import com.hjw.network.model.BannerData
@@ -18,6 +20,7 @@ import com.hjw.network.model.ContentsData
 import com.hjw.network.model.FooterData
 import com.hjw.network.model.GoodsData
 import com.hjw.network.model.HeaderData
+import com.hjw.network.model.StyleData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -60,23 +63,34 @@ private fun ContentsData.toContents(): Contents {
         ContentType.SCROLL,
             -> goodsDatas?.toGoods() ?: emptyList()
 
-        ContentType.STYLE -> TODO()
+        ContentType.STYLE -> styleDatas?.toStyles() ?: emptyList()
     }
     return Contents(
         contentList = contentList
     )
 }
 
+private fun List<StyleData>.toStyles(): Styles {
+    return Styles(
+        styleList = map { styleData ->
+            Style(
+                linkUrl = styleData.linkUrl,
+                thumbnailUrl = styleData.thumbnailUrl,
+            )
+        }
+    )
+}
+
 private fun List<GoodsData>.toGoods(): Goods {
     return Goods(
-        productList = map {
+        productList = map { goodsData ->
             Product(
-                linkUrl = it.linkUrl,
-                thumbnailUrl = it.thumbnailUrl,
-                brandName = it.brandName,
-                price = it.price,
-                saleRate = it.saleRate,
-                hasCoupon = it.hasCoupon
+                linkUrl = goodsData.linkUrl,
+                thumbnailUrl = goodsData.thumbnailUrl,
+                brandName = goodsData.brandName,
+                price = goodsData.price,
+                saleRate = goodsData.saleRate,
+                hasCoupon = goodsData.hasCoupon
             )
         }
     )
@@ -84,13 +98,13 @@ private fun List<GoodsData>.toGoods(): Goods {
 
 fun List<BannerData>.toBanners(): Banners {
     return Banners(
-        bannerList = map {
+        bannerList = map { bannerData ->
             Banner(
-                linkUrl = it.linkUrl,
-                thumbnailUrl = it.thumbnailUrl,
-                title = it.title,
-                description = it.description,
-                keyword = it.keyword,
+                linkUrl = bannerData.linkUrl,
+                thumbnailUrl = bannerData.thumbnailUrl,
+                title = bannerData.title,
+                description = bannerData.description,
+                keyword = bannerData.keyword,
             )
         }
     )
