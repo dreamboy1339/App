@@ -1,4 +1,4 @@
-package com.hjw.app.ui
+package com.hjw.app.ui.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.hjw.app.R
+import com.hjw.app.ui.MainUiState
+import com.hjw.app.ui.MainViewModel
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.AppColor
 import com.hjw.designsystem.theme.AppTheme
@@ -32,13 +37,14 @@ fun MainScreen() {
             )
         }
     ) {
-        MainContent(modifier = Modifier.padding(it))
-    }
-}
+        val viewModel: MainViewModel = viewModel()
+        val mainUiState: MainUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-@Composable
-fun MainContent(modifier: Modifier) {
-    // TODO: 콘텐츠들 보여주기
+        MainContent(
+            mainUiState = mainUiState,
+            modifier = Modifier.padding(it)
+        )
+    }
 }
 
 @Preview
