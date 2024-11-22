@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.hilt.android)
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.hjw.network"
+    namespace = "com.hjw.di"
     compileSdk = 35
 
     defaultConfig {
@@ -31,14 +32,15 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
+    implementation(project(":network"))
 
-    implementation(libs.kotlinx.serialization.json)
-    api(libs.bundles.retrofit)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.android.compiler)
 }
