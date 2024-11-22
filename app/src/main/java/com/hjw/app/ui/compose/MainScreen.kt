@@ -1,4 +1,4 @@
-package com.hjw.app.ui
+package com.hjw.app.ui.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
