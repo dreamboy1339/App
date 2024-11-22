@@ -27,5 +27,6 @@ include(
     ":core:common",
     ":network",
     ":domain",
-    ":data"
+    ":data",
+    ":di"
 )
