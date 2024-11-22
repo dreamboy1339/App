@@ -1,4 +1,4 @@
-package com.hjw.app.ui.model
+package com.hjw.domain.model
 
 data class Footer(
     val type: String,
