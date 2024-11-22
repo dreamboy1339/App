@@ -1,11 +1,13 @@
-package com.hjw.app.ui.model
+package com.hjw.app.ui.model.content
+
+import com.hjw.app.ui.model.Content
 
 data class Banner(
-    val linkURL: String,
-    val thumbnailURL: String,
+    val linkUrl: String,
+    val thumbnailUrl: String,
     val title: String,
     val description: String,
     val keyword: String,
-):Content
+): Content
 
 class Banners(bannerList: List<Banner>) : List<Banner> by bannerList

@@ -1,4 +1,6 @@
-package com.hjw.app.ui.model
+package com.hjw.app.ui.model.content
+
+import com.hjw.app.ui.model.Content
 
 data class Style(
     val linkUrl: String,

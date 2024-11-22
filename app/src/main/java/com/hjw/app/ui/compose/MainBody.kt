@@ -10,7 +10,6 @@ import com.hjw.designsystem.AppPreview
 @Composable
 fun MainBody(
     modifier: Modifier = Modifier,
-
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
