@@ -19,7 +19,7 @@ data class Data(
 data class ContentsData(
     val type: String,
     val bannerDatas: List<BannerData>? = null,
-    val productDatas: List<ProductData>? = null,
+    val goodsDatas: List<GoodsData>? = null,
     val styleDatas: List<StyleData>? = null,
 )
 
@@ -33,7 +33,7 @@ data class BannerData(
 )
 
 @Serializable
-data class ProductData(
+data class GoodsData(
     @SerialName("linkURL") val linkUrl: String,
     @SerialName("thumbnailURL") val thumbnailUrl: String,
     @SerialName("brandName") val brandName: String,

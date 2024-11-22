@@ -9,11 +9,14 @@ import com.hjw.domain.model.Widget
 import com.hjw.domain.model.Widgets
 import com.hjw.domain.model.content.Banner
 import com.hjw.domain.model.content.Banners
+import com.hjw.domain.model.content.Goods
+import com.hjw.domain.model.content.Product
 import com.hjw.domain.repository.WidgetRepository
 import com.hjw.network.model.ApiResponse
 import com.hjw.network.model.BannerData
 import com.hjw.network.model.ContentsData
 import com.hjw.network.model.FooterData
+import com.hjw.network.model.GoodsData
 import com.hjw.network.model.HeaderData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -52,16 +55,30 @@ private fun ContentsData.toContents(): Contents {
     val contentType = ContentType.from(type = type)
     val contentList: List<Content> = when (contentType) {
         ContentType.NONE -> emptyList()
-        ContentType.BANNER -> {
-            bannerDatas?.toBanners() ?: emptyList()
-        }
+        ContentType.BANNER -> bannerDatas?.toBanners() ?: emptyList()
+        ContentType.GRID,
+        ContentType.SCROLL,
+            -> goodsDatas?.toGoods() ?: emptyList()
 
-        ContentType.GRID -> TODO()
-        ContentType.SCROLL -> TODO()
         ContentType.STYLE -> TODO()
     }
     return Contents(
         contentList = contentList
+    )
+}
+
+private fun List<GoodsData>.toGoods(): Goods {
+    return Goods(
+        productList = map {
+            Product(
+                linkUrl = it.linkUrl,
+                thumbnailUrl = it.thumbnailUrl,
+                brandName = it.brandName,
+                price = it.price,
+                saleRate = it.saleRate,
+                hasCoupon = it.hasCoupon
+            )
+        }
     )
 }
 
