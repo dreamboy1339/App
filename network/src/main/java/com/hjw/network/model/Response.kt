@@ -11,16 +11,16 @@ data class ApiResponse(
 @Serializable
 data class Data(
     val contentsData: ContentsData,
-    val header: HeaderData? = null,
-    val Footer: FooterData? = null,
+    val headerData: HeaderData? = null,
+    val footerData: FooterData? = null,
 )
 
 @Serializable
 data class ContentsData(
     val type: String,
-    val banners: List<BannerData>? = null,
-    val goods: List<ProductData>? = null,
-    val styles: List<StyleData>? = null,
+    val bannerDatas: List<BannerData>? = null,
+    val productDatas: List<ProductData>? = null,
+    val styleDatas: List<StyleData>? = null,
 )
 
 @Serializable
