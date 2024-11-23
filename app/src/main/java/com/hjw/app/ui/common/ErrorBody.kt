@@ -1,4 +1,4 @@
-package com.hjw.app.ui.compose
+package com.hjw.app.ui.common
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.hjw.designsystem.component.MDSIconText
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun ErrorBody(
@@ -21,7 +21,7 @@ fun ErrorBody(
         MDSIconText(
             textStyle = MaterialTheme.typography.bodyMedium,
             title = message,
-            titleColor = AppColor.Red
+            titleColor = MDSColor.Red
         )
     }
 }

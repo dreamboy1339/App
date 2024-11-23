@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.component.MDSIconText
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MDSFooter(
@@ -26,20 +26,20 @@ fun MDSFooter(
     Button(
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = AppColor.White,
-            contentColor = AppColor.Gray
+            containerColor = MDSColor.White,
+            contentColor = MDSColor.Gray
         ),
         shape = RoundedCornerShape(18.dp),
         border = BorderStroke(
             width = 1.dp,
-            color = AppColor.Gray
+            color = MDSColor.Gray
         ),
         onClick = onClick
     ) {
         MDSIconText(
             leftIcon = (type == FooterType.REFRESH),
             title = title,
-            titleColor = AppColor.Black,
+            titleColor = MDSColor.Black,
             modifier = Modifier.wrapContentSize(),
             textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
         )

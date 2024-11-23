@@ -1,4 +1,4 @@
-package com.hjw.app.ui.compose
+package com.hjw.app.ui.main
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn

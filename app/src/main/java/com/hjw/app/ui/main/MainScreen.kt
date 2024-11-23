@@ -1,4 +1,4 @@
-package com.hjw.app.ui.compose
+package com.hjw.app.ui.main
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,7 +18,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.hjw.app.R
 import com.hjw.app.ui.MainUiState
 import com.hjw.app.ui.MainViewModel
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MainScreen() {
@@ -27,7 +27,7 @@ fun MainScreen() {
         topBar = {
             Text(
                 modifier = Modifier
-                    .background(color = AppColor.Gray)
+                    .background(color = MDSColor.White)
                     .fillMaxWidth()
                     .padding(16.dp),
                 text = stringResource(R.string.title_top_bar),

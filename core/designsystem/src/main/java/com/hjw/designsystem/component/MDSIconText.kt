@@ -17,7 +17,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Size
 import com.hjw.designsystem.theme.Spacing
 
@@ -69,7 +69,7 @@ private fun IconTextWithLeftIconPreview() {
         MDSIconText(
             leftIcon = true,
             title = "클리어런스",
-            titleColor = AppColor.Black,
+            titleColor = MDSColor.Black,
             textStyle = MaterialTheme.typography.titleLarge
         )
     }
@@ -83,7 +83,7 @@ private fun IconTextWithRightIconPreview() {
             title = "클리어런스",
             rightIcon = true,
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
-            titleColor = AppColor.Black,
+            titleColor = MDSColor.Black,
             textStyle = MaterialTheme.typography.titleLarge,
         )
     }

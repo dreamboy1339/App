@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.hjw.common.decimalFormat
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.R
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
@@ -35,7 +35,7 @@ fun MDSProduct(
 ) {
     Column(
         modifier = modifier
-            .background(color = AppColor.White)
+            .background(color = MDSColor.White)
     ) {
         MDSProductImage(
             modifier = modifier,
@@ -84,7 +84,7 @@ private fun MDSProductInfo(
         Text(
             text = stringSaleRate(saleRate),
             style = MaterialTheme.typography.labelSmall,
-            color = AppColor.Orange
+            color = MDSColor.Orange
         )
     }
 }

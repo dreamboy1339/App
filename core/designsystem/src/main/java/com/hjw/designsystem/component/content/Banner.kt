@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
@@ -53,7 +53,7 @@ fun MDSBanner(
             },
             index = index,
             total = total,
-            modifier = modifier
+            modifier = Modifier
                 .align(Alignment.BottomCenter)
         )
     }
@@ -78,7 +78,7 @@ private fun BannerGuide(
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
-                    color = AppColor.White
+                    color = MDSColor.White
                 )
             }
 
@@ -87,7 +87,7 @@ private fun BannerGuide(
                 Text(
                     text = subTitle,
                     style = MaterialTheme.typography.bodySmall,
-                    color = AppColor.White
+                    color = MDSColor.White
                 )
             }
 
@@ -98,7 +98,7 @@ private fun BannerGuide(
                 total = total,
                 modifier = Modifier
                     .align(Alignment.End)
-                    .background(AppColor.Black_Opaque)
+                    .background(MDSColor.Black_Opaque)
                     .padding(horizontal = 16.dp, vertical = 6.dp)
             )
         }
@@ -115,7 +115,7 @@ private fun Indicator(
         modifier = modifier,
         text = "$index / $total",
         style = MaterialTheme.typography.labelSmall,
-        color = AppColor.White
+        color = MDSColor.White
     )
 }
 
