@@ -53,7 +53,7 @@ fun MDSBanner(
             },
             index = index,
             total = total,
-            modifier = modifier
+            modifier = Modifier
                 .align(Alignment.BottomCenter)
         )
     }
