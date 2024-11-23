@@ -1,5 +1,6 @@
 package com.hjw.app.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hjw.domain.common.Result
@@ -35,10 +36,12 @@ class MainViewModel @Inject constructor(
     }
 
     private fun handleError(error: WidgetError) {
+        Log.d("fog", "handleError() called with: error = $error")
         sendUiState(state = MainUiState.Error(error = error))
     }
 
     private fun handleSuccess(data: Widgets) {
+        Log.d("fog", "handleSuccess() called with: data = $data")
         sendUiState(state = MainUiState.Success(data = data))
     }
 

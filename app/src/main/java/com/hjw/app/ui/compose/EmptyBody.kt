@@ -1,6 +1,11 @@
 package com.hjw.app.ui.compose
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
 @Composable
-fun EmptyBody() = Unit
+fun EmptyBody(modifier: Modifier) {
+    Box(modifier = modifier.fillMaxSize())
+}
