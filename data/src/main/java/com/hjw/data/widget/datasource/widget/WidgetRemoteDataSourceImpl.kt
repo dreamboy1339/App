@@ -1,4 +1,4 @@
-package com.hjw.data.widget
+package com.hjw.data.widget.datasource.widget
 
 import com.hjw.network.api.MusinsaApi
 import com.hjw.network.model.ApiResponse

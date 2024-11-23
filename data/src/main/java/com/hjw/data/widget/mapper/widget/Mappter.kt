@@ -1,4 +1,4 @@
-package com.hjw.data.widget
+package com.hjw.data.widget.mapper.widget
 
 import com.hjw.domain.common.ContentType
 import com.hjw.domain.model.Content
@@ -13,7 +13,6 @@ import com.hjw.domain.model.content.Goods
 import com.hjw.domain.model.content.Product
 import com.hjw.domain.model.content.Style
 import com.hjw.domain.model.content.Styles
-import com.hjw.domain.repository.WidgetRepository
 import com.hjw.network.model.ApiResponse
 import com.hjw.network.model.BannerData
 import com.hjw.network.model.ContentsData
@@ -21,29 +20,8 @@ import com.hjw.network.model.FooterData
 import com.hjw.network.model.GoodsData
 import com.hjw.network.model.HeaderData
 import com.hjw.network.model.StyleData
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import javax.inject.Inject
 
-class WidgetRepositoryImpl @Inject constructor(
-    private val dataSource: WidgetRemoteDataSource,
-) : WidgetRepository {
-    override suspend fun fetchWidgetList(): Result<Widgets> = withContext(Dispatchers.IO) {
-        val response = dataSource.fetchWidgetList()
-
-        if (response.isSuccessful.not()) {
-            val exception = Exception("${response.code()}")
-            return@withContext Result.failure(exception)
-        }
-
-        val apiResponse = response.body()
-            ?: return@withContext Result.failure(Exception("response body is null"))
-
-        Result.success(apiResponse.toWidgets())
-    }
-}
-
-private fun ApiResponse.toWidgets(): Widgets {
+internal fun ApiResponse.toWidgets(): Widgets {
     val widgetList: List<Widget> = data.map { widgetData ->
         Widget(
             header = widgetData.headerData?.toHeader(),
@@ -54,7 +32,7 @@ private fun ApiResponse.toWidgets(): Widgets {
     return Widgets(widgetList = widgetList)
 }
 
-private fun ContentsData.toContents(): Contents {
+internal fun ContentsData.toContents(): Contents {
     val contentType = ContentType.from(type = type)
     val contentList: List<Content> = when (contentType) {
         ContentType.NONE -> emptyList()
@@ -70,7 +48,7 @@ private fun ContentsData.toContents(): Contents {
     )
 }
 
-private fun List<StyleData>.toStyles(): Styles {
+internal fun List<StyleData>.toStyles(): Styles {
     return Styles(
         styleList = map { styleData ->
             Style(
@@ -81,7 +59,7 @@ private fun List<StyleData>.toStyles(): Styles {
     )
 }
 
-private fun List<GoodsData>.toGoods(): Goods {
+internal fun List<GoodsData>.toGoods(): Goods {
     return Goods(
         productList = map { goodsData ->
             Product(
@@ -110,7 +88,7 @@ fun List<BannerData>.toBanners(): Banners {
     )
 }
 
-private fun FooterData.toFooter(): Footer {
+internal fun FooterData.toFooter(): Footer {
     return Footer(
         type = type,
         title = title,
@@ -118,7 +96,7 @@ private fun FooterData.toFooter(): Footer {
     )
 }
 
-private fun HeaderData.toHeader(): Header {
+internal fun HeaderData.toHeader(): Header {
     return Header(
         title = title,
         iconUrl = iconUrl ?: "",
