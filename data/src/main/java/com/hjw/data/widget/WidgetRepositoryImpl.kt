@@ -36,8 +36,8 @@ class WidgetRepositoryImpl @Inject constructor(
             return@withContext Result.failure(exception)
         }
 
-        val apiResponse: ApiResponse = response.body()
-            ?: throw Exception("response body is null")
+        val apiResponse = response.body()
+            ?: return@withContext Result.failure(Exception("response body is null"))
 
         Result.success(apiResponse.toWidgets())
     }
