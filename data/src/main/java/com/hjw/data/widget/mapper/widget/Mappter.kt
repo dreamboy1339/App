@@ -1,14 +1,14 @@
 package com.hjw.data.widget.mapper.widget
 
 import com.hjw.domain.common.ContentType
-import com.hjw.domain.model.Content
-import com.hjw.domain.model.Contents
 import com.hjw.domain.model.Footer
 import com.hjw.domain.model.Header
 import com.hjw.domain.model.Widget
 import com.hjw.domain.model.Widgets
 import com.hjw.domain.model.content.Banner
 import com.hjw.domain.model.content.Banners
+import com.hjw.domain.model.content.Content
+import com.hjw.domain.model.content.Contents
 import com.hjw.domain.model.content.Goods
 import com.hjw.domain.model.content.Product
 import com.hjw.domain.model.content.Style
@@ -34,7 +34,7 @@ internal fun ApiResponse.toEntity(): Widgets {
 
 internal fun ContentsData.toContents(): Contents {
     val contentType = ContentType.from(type = type)
-    val contentList: List<Content> = when (contentType) {
+    val contents: List<Content> = when (contentType) {
         ContentType.NONE -> emptyList()
         ContentType.BANNER -> bannerDatas?.toBanners() ?: emptyList()
         ContentType.GRID,
@@ -44,7 +44,8 @@ internal fun ContentsData.toContents(): Contents {
         ContentType.STYLE -> styleDatas?.toStyles() ?: emptyList()
     }
     return Contents(
-        contentList = contentList
+        type = contentType,
+        contentItems = contents
     )
 }
 

@@ -1,7 +1,5 @@
 package com.hjw.domain.model.content
 
-import com.hjw.domain.model.Content
-
 data class Banner(
     val linkUrl: String,
     val thumbnailUrl: String,
