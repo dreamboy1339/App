@@ -1,21 +1,24 @@
 package com.hjw.app.ui.compose
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.app.ui.MainUiState
 import com.hjw.designsystem.AppPreview
+import com.hjw.domain.common.WidgetError
 
 @Composable
 fun MainContent(
     mainUiState: MainUiState,
     modifier: Modifier = Modifier,
 ) {
+    Log.i("fog", "$mainUiState")
     when (mainUiState) {
-        MainUiState.Idle -> EmptyBody()
-        MainUiState.Error -> ErrorBody(message = "오류가 발생했습니다.")
-        MainUiState.Loading -> LoadingBody(shown = true)
-        is MainUiState.Success -> MainBody()
+        MainUiState.Idle -> EmptyBody(modifier = modifier)
+        MainUiState.Loading -> LoadingBody(modifier = modifier, shown = true)
+        is MainUiState.Error -> ErrorBody(modifier = modifier, message = "오류가 발생했습니다.")
+        is MainUiState.Success -> MainBody(modifier = modifier)
     }
 }
 
@@ -39,6 +42,6 @@ private fun MainContentLoadingStatePreview() {
 @Composable
 private fun MainContentErrorStatePreview() {
     AppPreview {
-        MainContent(MainUiState.Error)
+        MainContent(MainUiState.Error(error = WidgetError.Network.EMPTY_RESPONSE))
     }
 }

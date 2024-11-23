@@ -35,7 +35,7 @@ android {
 
 dependencies {
 
-    implementation(libs.kotlinx.serialization.json)
+    api(libs.kotlinx.serialization.json)
     api(libs.bundles.retrofit)
 
     testImplementation(libs.junit)
