@@ -5,14 +5,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.footer.FooterType
+import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Content
 import com.hjw.domain.model.Widget
 
 @Composable
-fun Widget(
+fun WidgetItem(
     widget: Widget,
     onFooterClick: () -> Unit,
 ) {
@@ -28,7 +28,7 @@ fun Widget(
         )
     }
 
-    Contents(widget.contents)
+    ContentBody(widget.contents)
 
     val footer = widget.footer
     if (footer != null) {
@@ -44,7 +44,7 @@ fun Widget(
 }
 
 @Composable
-fun Contents(contents: com.hjw.domain.model.Contents) {
+fun ContentBody(contents: com.hjw.domain.model.Contents) {
     contents.forEach { content: Content ->
 
     }

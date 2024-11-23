@@ -22,7 +22,7 @@ fun MainBody(
                 key = { index -> "$index-${widgets[index].hashCode()}" }
             ) { index ->
                 val widget = widgets[index]
-                Widget(
+                WidgetItem(
                     widget = widget,
                     onFooterClick = onFooterClick
                 )
