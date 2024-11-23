@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MDSProductImage(
@@ -51,7 +51,7 @@ private fun Coupon(modifier: Modifier) {
     Box(
         modifier = modifier
             .wrapContentSize()
-            .background(AppColor.Blue)
+            .background(MDSColor.Blue)
             .padding(4.dp)
     ) {
         Text(

@@ -9,11 +9,11 @@ import coil3.annotation.ExperimentalCoilApi
 import coil3.compose.AsyncImagePreviewHandler
 import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.test.FakeImage
-import com.hjw.designsystem.theme.AppColor
+import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.AppTheme
 
 val previewHandler = AsyncImagePreviewHandler {
-    FakeImage(color = AppColor.Gray_Opaque.toArgb())
+    FakeImage(color = MDSColor.Gray_Opaque.toArgb())
 }
 
 @Composable

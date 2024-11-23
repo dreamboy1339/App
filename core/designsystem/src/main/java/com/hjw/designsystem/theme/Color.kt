@@ -2,7 +2,7 @@ package com.hjw.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
-object AppColor {
+object MDSColor {
     val Black = Color(0xFF000000)
     val Black_Opaque = Color(0x80000000)
     val White = Color(0xFFFFFFFF)
