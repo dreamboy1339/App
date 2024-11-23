@@ -1,6 +1,5 @@
 package com.hjw.app.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hjw.domain.usecase.FetchWidgetListUseCase
@@ -25,7 +24,7 @@ class MainViewModel @Inject constructor(
     private fun fetchWidgetList() {
         viewModelScope.launch {
             val result = fetchWidgetListUseCase()
-            Log.d("fog", "fetchWidgetList: $result")
+
         }
     }
 }
