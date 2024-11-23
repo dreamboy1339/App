@@ -44,6 +44,7 @@ internal fun ContentsData.toContents(): Contents {
         ContentType.STYLE -> styleDatas?.toStyles() ?: emptyList()
     }
     return Contents(
+        type = contentType,
         contentList = contentList
     )
 }
