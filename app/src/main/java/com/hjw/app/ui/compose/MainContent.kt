@@ -12,13 +12,20 @@ import com.hjw.domain.common.WidgetError
 fun MainContent(
     mainUiState: MainUiState,
     modifier: Modifier = Modifier,
+    onFooterClick: () -> Unit = {},
 ) {
     Log.i("fog", "$mainUiState")
     when (mainUiState) {
         MainUiState.Idle -> EmptyBody(modifier = modifier)
         MainUiState.Loading -> LoadingBody(modifier = modifier, shown = true)
         is MainUiState.Error -> ErrorBody(modifier = modifier, message = "오류가 발생했습니다.")
-        is MainUiState.Success -> MainBody(modifier = modifier)
+        is MainUiState.Success -> {
+            MainBody(
+                widgets = mainUiState.data,
+                modifier = modifier,
+                onFooterClick = onFooterClick
+            )
+        }
     }
 }
 

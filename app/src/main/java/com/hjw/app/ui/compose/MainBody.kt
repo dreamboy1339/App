@@ -6,14 +6,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.designsystem.AppPreview
+import com.hjw.domain.model.Widgets
 
 @Composable
 fun MainBody(
+    widgets: Widgets,
     modifier: Modifier = Modifier,
+    onFooterClick: () -> Unit = {},
 ) {
     LazyColumn(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         content = {
+            items(
+                count = widgets.size,
+                key = { index -> "$index-${widgets[index].hashCode()}" }
+            ) { index ->
+                val widget = widgets[index]
+                Widget(
+                    widget = widget,
+                    onFooterClick = onFooterClick
+                )
+            }
         }
     )
 }
@@ -22,6 +35,6 @@ fun MainBody(
 @Composable
 private fun MainBodyPreview() {
     AppPreview {
-        MainBody()
+        MainBody(widgets = Widgets(listOf()))
     }
 }
