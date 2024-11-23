@@ -1,5 +1,5 @@
-package com.hjw.domain.model
+package com.hjw.domain.model.content
 
-interface Content
+sealed interface Content
 
 class Contents(contentList: List<Content>) : List<Content> by contentList

@@ -1,8 +1,8 @@
 package com.hjw.data.widget.mapper.widget
 
 import com.hjw.domain.common.ContentType
-import com.hjw.domain.model.Content
-import com.hjw.domain.model.Contents
+import com.hjw.domain.model.content.Content
+import com.hjw.domain.model.content.Contents
 import com.hjw.domain.model.Footer
 import com.hjw.domain.model.Header
 import com.hjw.domain.model.Widget

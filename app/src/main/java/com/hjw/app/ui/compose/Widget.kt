@@ -8,8 +8,9 @@ import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
-import com.hjw.domain.model.Content
+import com.hjw.domain.model.content.Content
 import com.hjw.domain.model.Widget
+import com.hjw.domain.model.content.Contents
 
 @Composable
 fun WidgetItem(
@@ -44,7 +45,7 @@ fun WidgetItem(
 }
 
 @Composable
-fun ContentBody(contents: com.hjw.domain.model.Contents) {
+fun ContentBody(contents: Contents) {
     contents.forEach { content: Content ->
 
     }
