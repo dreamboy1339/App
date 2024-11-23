@@ -24,7 +24,7 @@ import com.hjw.designsystem.theme.AppColor
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
-fun Product(
+fun MDSProduct(
     linkUrl: String,
     thumbnailUrl: String,
     brandName: String,
@@ -37,14 +37,14 @@ fun Product(
         modifier = modifier
             .background(color = AppColor.White)
     ) {
-        ProductImage(
+        MDSProductImage(
             modifier = modifier,
             thumbnailUrl = thumbnailUrl,
             brandName = brandName,
             hasCoupon = hasCoupon
         )
         Spacer(modifier = Modifier.height(Spacing.xs))
-        ProductInfo(
+        MDSProductInfo(
             modifier = modifier,
             brandName = brandName,
             price = price,
@@ -54,7 +54,7 @@ fun Product(
 }
 
 @Composable
-private fun ProductInfo(
+private fun MDSProductInfo(
     brandName: String,
     price: Int,
     saleRate: Int,
@@ -99,7 +99,7 @@ private fun stringSaleRate(saleRate: Int) = stringResource(R.string.txt_sale_rat
 @Composable
 private fun ProductPreview() {
     AppPreview {
-        Product(
+        MDSProduct(
             linkUrl = "https://www.musinsa.com/app/goods/2281818",
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
             brandName = "아스트랄 프로젝션 아스트랄 프로젝션 아스트랄 프로젝션",

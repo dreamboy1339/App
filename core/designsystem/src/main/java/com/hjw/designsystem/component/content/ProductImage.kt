@@ -20,7 +20,7 @@ import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.theme.AppColor
 
 @Composable
-fun ProductImage(
+fun MDSProductImage(
     thumbnailUrl: String,
     brandName: String,
     hasCoupon: Boolean,
@@ -66,7 +66,7 @@ private fun Coupon(modifier: Modifier) {
 @Composable
 private fun ProductImageWithCouponPreview() {
     AppPreview {
-        ProductImage(
+        MDSProductImage(
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
             brandName = "아스트랄 프로젝션",
             hasCoupon = true,
@@ -79,7 +79,7 @@ private fun ProductImageWithCouponPreview() {
 @Composable
 private fun ProductImageWithNoCouponPreview() {
     AppPreview {
-        ProductImage(
+        MDSProductImage(
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
             brandName = "아스트랄 프로젝션",
             hasCoupon = false,

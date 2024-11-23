@@ -22,7 +22,7 @@ import com.hjw.designsystem.theme.AppColor
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
-fun Banner(
+fun MDSBanner(
     index: Int,
     total: Int,
     linkUrl: String,
@@ -123,7 +123,7 @@ private fun Indicator(
 @Composable
 private fun BannerPreview() {
     AppPreview {
-        Banner(
+        MDSBanner(
             index = 99,
             total = 99,
             linkUrl = "https://www.musinsa.com/app/plan/views/22278",
@@ -139,7 +139,7 @@ private fun BannerPreview() {
 @Composable
 private fun BannerWithNoTitleAndDescriptionPreview() {
     AppPreview {
-        Banner(
+        MDSBanner(
             index = 99,
             total = 99,
             linkUrl = "https://www.musinsa.com/app/plan/views/22278",

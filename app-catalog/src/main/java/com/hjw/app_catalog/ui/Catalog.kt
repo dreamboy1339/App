@@ -16,11 +16,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.hjw.designsystem.component.content.Banner
-import com.hjw.designsystem.component.content.Product
-import com.hjw.designsystem.component.footer.Footer
+import com.hjw.designsystem.component.content.MDSBanner
+import com.hjw.designsystem.component.content.MDSProduct
+import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.footer.FooterType
-import com.hjw.designsystem.component.header.Header
+import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
 
@@ -49,27 +49,27 @@ fun Catalog() {
                     Text(text = "Header", style = MaterialTheme.typography.headlineLarge)
                 }
                 item {
-                    Header(
+                    MDSHeader(
                         title = "Header",
                         modifier = modifier
                     )
                 }
                 item {
-                    Header(
+                    MDSHeader(
                         title = "Header with icon",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                     )
                 }
                 item {
-                    Header(
+                    MDSHeader(
                         title = "Header with link",
                         modifier = modifier,
                         linkUrl = "https://www.musinsa.com"
                     )
                 }
                 item {
-                    Header(
+                    MDSHeader(
                         title = "Header with icon & link",
                         modifier = modifier,
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
@@ -81,7 +81,7 @@ fun Catalog() {
                     Text(text = "Banner", style = MaterialTheme.typography.headlineLarge)
                 }
                 item {
-                    Banner(
+                    MDSBanner(
                         index = 99,
                         total = 99,
                         linkUrl = "https://www.musinsa.com/app/plan/views/22278",
@@ -92,7 +92,7 @@ fun Catalog() {
                     )
                 }
                 item {
-                    Banner(
+                    MDSBanner(
                         index = 99,
                         total = 99,
                         linkUrl = "https://www.musinsa.com/app/plan/views/22272",
@@ -103,7 +103,7 @@ fun Catalog() {
                     )
                 }
                 item {
-                    Banner(
+                    MDSBanner(
                         index = 99,
                         total = 99,
                         linkUrl = "https://www.musinsa.com/app/campaign/index/junebeautyfull",
@@ -115,7 +115,7 @@ fun Catalog() {
                     Text(text = "Product", style = MaterialTheme.typography.headlineLarge)
                 }
                 item {
-                    Product(
+                    MDSProduct(
                         linkUrl = "https://www.musinsa.com/app/goods/2281818",
                         thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
                         brandName = "아스트랄 프로젝션",
@@ -126,7 +126,7 @@ fun Catalog() {
                     )
                 }
                 item {
-                    Product(
+                    MDSProduct(
                         linkUrl = "https://www.musinsa.com/app/goods/2281818",
                         thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
                         brandName = "아스트랄 프로젝션",
@@ -141,14 +141,14 @@ fun Catalog() {
                     Text(text = "Footer", style = MaterialTheme.typography.headlineLarge)
                 }
                 item {
-                    Footer(
+                    MDSFooter(
                         type = FooterType.REFRESH,
                         title = "새로운 추천",
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
                 item {
-                    Footer(
+                    MDSFooter(
                         type = FooterType.MORE,
                         title = "더보기",
                         modifier = Modifier.fillMaxWidth()
