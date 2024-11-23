@@ -21,7 +21,7 @@ import com.hjw.network.model.GoodsData
 import com.hjw.network.model.HeaderData
 import com.hjw.network.model.StyleData
 
-internal fun ApiResponse.toWidgets(): Widgets {
+internal fun ApiResponse.toEntity(): Widgets {
     val widgetList: List<Widget> = data.map { widgetData ->
         Widget(
             header = widgetData.headerData?.toHeader(),

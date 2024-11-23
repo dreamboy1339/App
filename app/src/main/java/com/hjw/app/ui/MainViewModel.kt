@@ -25,7 +25,7 @@ class MainViewModel @Inject constructor(
     private fun fetchWidgetList() {
         viewModelScope.launch {
             val result = fetchWidgetListUseCase()
-            Log.d("fog", "fetchWidgetList: ${result.getOrNull()}")
+            Log.d("fog", "fetchWidgetList: $result")
         }
     }
 }
