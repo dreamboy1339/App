@@ -48,5 +48,9 @@ class MainViewModel @Inject constructor(
     private fun sendUiState(state: MainUiState) {
         _uiState.update { state }
     }
+
+    fun onFooterClick() {
+        Log.d("fog", "onFooterClick() called")
+    }
 }
 
