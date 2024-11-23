@@ -7,7 +7,7 @@ import coil3.compose.AsyncImage
 import com.hjw.designsystem.AppPreview
 
 @Composable
-fun ImageIcon(
+fun MDSImageIcon(
     iconUrl: String,
     modifier: Modifier = Modifier,
 ) {
@@ -22,6 +22,6 @@ fun ImageIcon(
 @Composable
 private fun ImageIconPreview() {
     AppPreview {
-        ImageIcon(iconUrl = "https://image.msscdn.net/icons/mobile/clock.png")
+        MDSImageIcon(iconUrl = "https://image.msscdn.net/icons/mobile/clock.png")
     }
 }

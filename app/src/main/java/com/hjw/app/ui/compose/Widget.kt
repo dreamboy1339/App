@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.hjw.designsystem.component.footer.Footer
+import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.footer.FooterType
-import com.hjw.designsystem.component.header.Header
+import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Content
 import com.hjw.domain.model.Widget
 
@@ -18,7 +18,7 @@ fun Widget(
 ) {
     val header = widget.header
     if (header != null) {
-        Header(
+        MDSHeader(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 12.dp),
@@ -32,7 +32,7 @@ fun Widget(
 
     val footer = widget.footer
     if (footer != null) {
-        Footer(
+        MDSFooter(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 12.dp),

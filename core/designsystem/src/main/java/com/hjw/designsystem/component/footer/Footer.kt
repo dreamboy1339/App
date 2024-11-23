@@ -13,11 +13,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.IconText
+import com.hjw.designsystem.component.MDSIconText
 import com.hjw.designsystem.theme.AppColor
 
 @Composable
-fun Footer(
+fun MDSFooter(
     type: FooterType,
     title: String,
     modifier: Modifier = Modifier,
@@ -36,7 +36,7 @@ fun Footer(
         ),
         onClick = onClick
     ) {
-        IconText(
+        MDSIconText(
             leftIcon = (type == FooterType.REFRESH),
             title = title,
             titleColor = AppColor.Black,
@@ -50,7 +50,7 @@ fun Footer(
 @Composable
 private fun FooterRefreshPreview() {
     AppPreview {
-        Footer(
+        MDSFooter(
             type = FooterType.REFRESH,
             title = "새로운 추천",
             modifier = Modifier.fillMaxWidth()
@@ -62,7 +62,7 @@ private fun FooterRefreshPreview() {
 @Composable
 private fun FooterMorePreview() {
     AppPreview {
-        Footer(
+        MDSFooter(
             type = FooterType.MORE,
             title = "더보기",
             modifier = Modifier.fillMaxWidth()

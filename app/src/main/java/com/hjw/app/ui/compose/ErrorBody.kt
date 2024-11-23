@@ -6,7 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.hjw.designsystem.component.IconText
+import com.hjw.designsystem.component.MDSIconText
 import com.hjw.designsystem.theme.AppColor
 
 @Composable
@@ -18,7 +18,7 @@ fun ErrorBody(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        IconText(
+        MDSIconText(
             textStyle = MaterialTheme.typography.bodyMedium,
             title = message,
             titleColor = AppColor.Red

@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.IconText
+import com.hjw.designsystem.component.MDSIconText
 
 @Composable
-fun Header(
+fun MDSHeader(
     title: String,
     modifier: Modifier = Modifier,
     iconUrl: String = "",
@@ -28,7 +28,7 @@ fun Header(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        IconText(
+        MDSIconText(
             rightIcon = true,
             title = title,
             iconUrl = iconUrl,
@@ -50,7 +50,7 @@ fun Header(
 @Composable
 private fun HeaderWithNoParamsPreview() {
     AppPreview {
-        Header(title = "클리어런스")
+        MDSHeader(title = "클리어런스")
     }
 }
 
@@ -58,7 +58,7 @@ private fun HeaderWithNoParamsPreview() {
 @Composable
 private fun HeaderWithLinkUrlPreview() {
     AppPreview {
-        Header(
+        MDSHeader(
             title = "클리어런스",
             linkUrl = "https://www.musinsa.com/brands/discoveryexpedition?category3DepthCodes=&category2DepthCodes=&category1DepthCode=018&colorCodes=&startPrice=&endPrice=&exclusiveYn=&includeSoldOut=&saleGoods=&timeSale=&includeKeywords=&sortCode=discount_rate&tags=&page=1&size=90&listViewType=small&campaignCode=&groupSale=&outletGoods=false&boutiqueGoods="
         )
@@ -69,7 +69,7 @@ private fun HeaderWithLinkUrlPreview() {
 @Composable
 private fun HeaderWithIconUrlPreview() {
     AppPreview {
-        Header(
+        MDSHeader(
             title = "클리어런스",
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
         )
@@ -80,7 +80,7 @@ private fun HeaderWithIconUrlPreview() {
 @Composable
 private fun HeaderWithAllParamsPreview() {
     AppPreview {
-        Header(
+        MDSHeader(
             title = "클리어런스",
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
             linkUrl = "https://www.musinsa.com/brands/discoveryexpedition?category3DepthCodes=&category2DepthCodes=&category1DepthCode=018&colorCodes=&startPrice=&endPrice=&exclusiveYn=&includeSoldOut=&saleGoods=&timeSale=&includeKeywords=&sortCode=discount_rate&tags=&page=1&size=90&listViewType=small&campaignCode=&groupSale=&outletGoods=false&boutiqueGoods="

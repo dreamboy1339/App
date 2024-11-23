@@ -22,7 +22,7 @@ import com.hjw.designsystem.theme.Size
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
-fun IconText(
+fun MDSIconText(
     textStyle: TextStyle,
     leftIcon: Boolean = false,
     title: String = "",
@@ -54,7 +54,7 @@ fun IconText(
 
         if (rightIcon && iconUrl.isNotBlank()) {
             Spacer(modifier = Modifier.size(Spacing.xs))
-            ImageIcon(
+            MDSImageIcon(
                 iconUrl = iconUrl,
                 modifier = Modifier.size(Size.s)
             )
@@ -66,7 +66,7 @@ fun IconText(
 @Composable
 private fun IconTextWithLeftIconPreview() {
     AppPreview {
-        IconText(
+        MDSIconText(
             leftIcon = true,
             title = "클리어런스",
             titleColor = AppColor.Black,
@@ -79,7 +79,7 @@ private fun IconTextWithLeftIconPreview() {
 @Composable
 private fun IconTextWithRightIconPreview() {
     AppPreview {
-        IconText(
+        MDSIconText(
             title = "클리어런스",
             rightIcon = true,
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
