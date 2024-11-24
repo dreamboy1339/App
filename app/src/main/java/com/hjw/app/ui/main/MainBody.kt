@@ -2,6 +2,7 @@ package com.hjw.app.ui.main
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,11 +19,10 @@ fun MainBody(
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
         content = {
-            items(
-                count = widgets.size,
-                key = { index -> "$index-${widgets[index].hashCode()}" }
-            ) { index ->
-                val widget = widgets[index]
+            itemsIndexed(
+                items = widgets,
+                key = { index, item -> "$index-${item.hashCode()}" }
+            ) { _, widget ->
                 WidgetItem(
                     widget = widget,
                     onFooterClick = onFooterClick
