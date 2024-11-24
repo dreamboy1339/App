@@ -14,13 +14,17 @@ import com.hjw.designsystem.theme.MDSColor
 import com.hjw.domain.model.content.Goods
 
 @Composable
-fun ScrollView(goods: Goods) {
+fun ScrollView(
+    goods: Goods,
+    modifier: Modifier = Modifier,
+) {
 
     LazyHorizontalGrid(
+        modifier = modifier
+            .height(500.dp),
         rows = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = Modifier.height(500.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(count = goods.size) {
             val product = goods[it]
