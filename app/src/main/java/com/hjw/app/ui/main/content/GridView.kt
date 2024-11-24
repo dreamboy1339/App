@@ -1,6 +1,5 @@
 package com.hjw.app.ui.main.content
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,15 +11,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.MDSProduct
-import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Goods
+
+private const val TYPE_GRID_COLUMNS = 3
+private const val TYPE_GRID_ROWS = 2
+private const val MIDDLE_COLUMN = 1
 
 @Composable
 fun GridView(
     goods: Goods,
-    columns: Int,
-    rows: Int,
+    columns: Int = TYPE_GRID_COLUMNS,
+    rows: Int = TYPE_GRID_ROWS,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -68,8 +70,7 @@ private fun GridRow(
             val product = goods[position]
             MDSProduct(
                 modifier = Modifier
-                    .weight(1f)
-                    .border(width = 1.dp, color = MDSColor.Orange),
+                    .weight(1f),
                 linkUrl = product.linkUrl,
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,
@@ -86,7 +87,8 @@ private fun GridRow(
 }
 
 @Composable
-private fun calculateItemPadding(position: Int, columns: Int): Boolean = position % columns == 1
+private fun calculateItemPadding(position: Int, columns: Int): Boolean =
+    position % columns == MIDDLE_COLUMN
 
 @Composable
 private fun calculateProductPosition(row: Int, column: Int, columns: Int) = row * columns + column

@@ -8,9 +8,6 @@ import com.hjw.domain.model.content.Contents
 import com.hjw.domain.model.content.Goods
 import com.hjw.domain.model.content.Styles
 
-private const val TYPE_GRID_COLUMNS = 3
-private const val TYPE_GRID_ROWS = 2
-
 @Composable
 fun WidgetContent(
     contents: Contents,
@@ -24,9 +21,7 @@ fun WidgetContent(
         ContentType.GRID -> {
             GridView(
                 modifier = modifier,
-                goods = contentItems as Goods,
-                columns = TYPE_GRID_COLUMNS,
-                rows = TYPE_GRID_ROWS,
+                goods = contentItems as Goods
             )
         }
 
