@@ -1,6 +1,5 @@
 package com.hjw.designsystem.component.content
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,7 +37,6 @@ fun MDSProduct(
     ) {
         MDSProductImage(
             thumbnailUrl = thumbnailUrl,
-            brandName = brandName,
             hasCoupon = hasCoupon
         )
         Spacer(modifier = Modifier.height(Spacing.xs))

@@ -28,7 +28,7 @@ fun GridView(
                     .wrapContentHeight()
             ) {
                 for (column in 0 until columns) {
-                    val position = calculateGridPosition(row, columns, column)
+                    val position = calculateProductPosition(row, columns, column)
                     val product = goods[position]
                     MDSProduct(
                         modifier = Modifier.weight(1f),
@@ -46,4 +46,4 @@ fun GridView(
 }
 
 @Composable
-private fun calculateGridPosition(row: Int, columns: Int, column: Int) = row * columns + column
+private fun calculateProductPosition(row: Int, columns: Int, column: Int) = row * columns + column
