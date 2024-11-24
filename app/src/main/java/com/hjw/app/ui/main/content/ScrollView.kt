@@ -30,8 +30,8 @@ fun ScrollView(
             val product = goods[it]
             MDSProduct(
                 modifier = Modifier
-                    .border(1.dp, color = MDSColor.Orange)
-                    .width(150.dp),
+                    .width(150.dp)
+                    .border(1.dp, color = MDSColor.Orange), // test
                 linkUrl = product.linkUrl,
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,

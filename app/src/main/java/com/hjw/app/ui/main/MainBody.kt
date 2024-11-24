@@ -8,9 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hjw.app.ui.main.content.WidgetItem
+import com.hjw.app.ui.main.content.BannerItem
+import com.hjw.app.ui.main.content.grid.GridItem
+import com.hjw.app.ui.main.content.scroll.ScrollItem
+import com.hjw.app.ui.main.content.style.StyleItem
 import com.hjw.designsystem.AppPreview
+import com.hjw.domain.common.ContentType
 import com.hjw.domain.model.Widgets
+import com.hjw.domain.model.content.Banners
 
 @Composable
 fun MainBody(
@@ -25,12 +30,48 @@ fun MainBody(
                 items = widgets,
                 key = { index, item -> "$index-${item.hashCode()}" }
             ) { _, widget ->
-                WidgetItem(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 12.dp),
-                    widget = widget,
-                )
+                val contents = widget.contents
+                val contentType = contents.type
+                val contentItems = contents.contentItems
+
+                when (contentType) {
+                    ContentType.NONE -> {}
+                    ContentType.BANNER -> {
+                        BannerItem(
+                            banners = contentItems as Banners
+                        )
+                    }
+
+                    ContentType.GRID -> {
+                        GridItem(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 12.dp),
+                            widget = widget,
+                            contentItems = contentItems
+                        )
+                    }
+
+                    ContentType.SCROLL -> {
+                        ScrollItem(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 12.dp),
+                            widget = widget,
+                            contentItems = contentItems
+                        )
+                    }
+
+                    ContentType.STYLE -> {
+                        StyleItem(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 12.dp),
+                            widget = widget,
+                            contentItems = contentItems
+                        )
+                    }
+                }
             }
         }
     )

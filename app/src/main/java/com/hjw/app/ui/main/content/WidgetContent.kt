@@ -17,7 +17,7 @@ fun WidgetContent(
     val contentItems = contents.contentItems
     when (contentType) {
         ContentType.NONE -> {}
-        ContentType.BANNER -> SwipeBannerPager(banners = contentItems as Banners)
+        ContentType.BANNER -> BannerItem(banners = contentItems as Banners)
         ContentType.GRID -> {
             GridView(
                 modifier = modifier,
