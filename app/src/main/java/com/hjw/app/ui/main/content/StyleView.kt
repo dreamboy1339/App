@@ -3,14 +3,17 @@ package com.hjw.app.ui.main.content
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.MDSProductImage
 import com.hjw.designsystem.theme.MDSColor
+import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Style
 import com.hjw.domain.model.content.Styles
 
@@ -20,6 +23,7 @@ fun StyleView(
     modifier: Modifier = Modifier,
     columns: Int = 3,
     rows: Int = 2,
+    onLoadMore: (Boolean) -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -30,7 +34,12 @@ fun StyleView(
             if (row == 0) {
                 FirstStyleRow(styles.subList(0, 3))
             } else {
-                StyleRow(columns, row, styles)
+                StyleRow(
+                    columns = columns,
+                    row = row,
+                    styles = styles,
+                    onLoadMore = onLoadMore
+                )
             }
         }
     }
@@ -41,14 +50,53 @@ private fun StyleRow(
     columns: Int,
     row: Int,
     styles: Styles,
+    onLoadMore: (Boolean) -> Unit,
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
+        val totalCount = styles.size
+        val maxRows = calculateAvailableMaxRowSize(totalCount, columns)
+
         for (column in 0 until columns) {
-            val position = calculateStylePosition(row, columns, column)
+            val position = calculateStylePosition(
+                row = row,
+                columns = columns,
+                column = column
+            )
+
+            val isPositionAvailable = calculatePositionAvailable(position, maxRows, columns)
+
+            // 빈 포지션인 경우 빈 공간을 채운다.
+            if (isPositionAvailable && position >= totalCount) {
+                EmptyProductImage(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(1.dp)
+                        .border(width = 1.dp, color = MDSColor.Orange)
+                )
+                // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
+                val nextPosition = position + 1
+                onLoadMore(calculatePositionAvailable(nextPosition, maxRows, columns))
+                break
+            }
+
+            // 유효하지 않은 포지션인 경우 멈춘다.
+            if (isPositionAvailable.not()) {
+                break
+            }
+
+            val isItemPadding = calculateItemPadding(
+                position = position,
+                columns = columns
+            )
+
+            if (isItemPadding) {
+                Spacer(modifier = Modifier.size(Spacing.xxs))
+            }
+
             val product = styles[position]
             MDSProductImage(
                 modifier = Modifier
@@ -58,8 +106,21 @@ private fun StyleRow(
                 thumbnailUrl = product.thumbnailUrl,
                 hasCoupon = false
             )
+
+            if (isItemPadding) {
+                Spacer(modifier = Modifier.size(Spacing.xxs))
+            }
         }
     }
+}
+
+@Composable
+fun EmptyProductImage(modifier: Modifier) {
+    MDSProductImage(
+        modifier = modifier,
+        thumbnailUrl = "",
+        hasCoupon = false
+    )
 }
 
 @Composable
@@ -100,6 +161,22 @@ private fun FirstStyleRow(
         }
     }
 }
+
+@Composable
+private fun calculatePositionAvailable(position: Int, maxRows: Int, columns: Int): Boolean {
+    return position in 0..<(maxRows * columns)
+}
+
+@Composable
+private fun calculateAvailableMaxRowSize(size: Int, columns: Int): Int {
+    val maxRows = (size / columns) + 1
+    //val emptyColumns = columns - (size % columns)
+    return maxRows
+}
+
+@Composable
+private fun calculateItemPadding(position: Int, columns: Int): Boolean =
+    position % columns == 1
 
 @Composable
 private fun calculateStylePosition(row: Int, columns: Int, column: Int) = row * columns + column

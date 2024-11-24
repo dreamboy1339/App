@@ -1,6 +1,11 @@
 package com.hjw.app.ui.main.content.style
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.hjw.app.ui.main.content.StyleView
 import com.hjw.designsystem.component.footer.FooterType
@@ -25,20 +30,35 @@ fun StyleItem(
             linkUrl = header.linkUrl
         )
     }
+
+    var isLoadMore by remember { mutableStateOf(true) }
+    val onLoadMore: (Boolean) -> Unit = {
+        isLoadMore = it
+    }
+
+    var rows by remember { mutableIntStateOf(2) }
+    val onMoreClick: () -> Unit = {
+        // 더보기 가능한 상태일 때만 행을 추가한다.
+        if (isLoadMore) {
+            rows++
+        }
+    }
+
     StyleView(
         modifier = modifier,
-        styles = contentItems as Styles
+        styles = contentItems as Styles,
+        rows = rows,
+        onLoadMore = onLoadMore
     )
+
     val footer = widget.footer
-    if (footer != null) {
+    if (footer != null && isLoadMore) {
         val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = modifier,
             title = footer.title,
             showIcon = (type == FooterType.REFRESH),
-            onClick = {
-
-            }
+            onClick = onMoreClick
         )
     }
 }
