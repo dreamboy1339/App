@@ -42,8 +42,7 @@ fun MainScreen() {
             mainUiState = mainUiState,
             modifier = Modifier
                 .background(color = Color.White)
-                .padding(it),
-            onFooterClick = viewModel::onFooterClick
+                .padding(it)
         )
     }
 }

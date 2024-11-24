@@ -71,13 +71,24 @@ private fun MDSProductInfo(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
+        val priceString = if (price >= 0) {
+            stringPrice(price)
+        } else {
+            ""
+        }
         Text(
-            text = stringPrice(price),
+            text = priceString,
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.primary
         )
+
+        val saleRateString = if (saleRate >= 0) {
+            stringSaleRate(saleRate)
+        } else {
+            ""
+        }
         Text(
-            text = stringSaleRate(saleRate),
+            text = saleRateString,
             style = MaterialTheme.typography.labelSmall,
             color = MDSColor.Orange
         )
@@ -100,6 +111,22 @@ private fun ProductPreview() {
             brandName = "아스트랄 프로젝션 아스트랄 프로젝션 아스트랄 프로젝션",
             price = 39900,
             saleRate = 50,
+            hasCoupon = true,
+            modifier = Modifier.width(150.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun ProductWithNoInfoPreview() {
+    AppPreview {
+        MDSProduct(
+            linkUrl = "",
+            thumbnailUrl = "",
+            brandName = "",
+            price = -1,
+            saleRate = -1,
             hasCoupon = true,
             modifier = Modifier.width(150.dp)
         )

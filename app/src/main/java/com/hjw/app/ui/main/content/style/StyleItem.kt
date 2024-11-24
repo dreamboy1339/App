@@ -1,44 +1,44 @@
-package com.hjw.app.ui.main
+package com.hjw.app.ui.main.content.style
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.hjw.app.ui.main.content.WidgetContent
+import com.hjw.app.ui.main.content.StyleView
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Widget
+import com.hjw.domain.model.content.Content
+import com.hjw.domain.model.content.Styles
 
 @Composable
-fun WidgetItem(
+fun StyleItem(
     widget: Widget,
-    onFooterClick: () -> Unit,
+    modifier: Modifier,
+    contentItems: List<Content>,
 ) {
     val header = widget.header
     if (header != null) {
         MDSHeader(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp),
+            modifier = modifier,
             title = header.title,
             iconUrl = header.iconUrl,
             linkUrl = header.linkUrl
         )
     }
-
-    WidgetContent(widget.contents)
-
+    StyleView(
+        modifier = modifier,
+        styles = contentItems as Styles
+    )
     val footer = widget.footer
     if (footer != null) {
+        val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 12.dp),
-            type = FooterType.safeValueOf(footer.type),
+            modifier = modifier,
             title = footer.title,
-            onClick = onFooterClick
+            showIcon = (type == FooterType.REFRESH),
+            onClick = {
+
+            }
         )
     }
 }

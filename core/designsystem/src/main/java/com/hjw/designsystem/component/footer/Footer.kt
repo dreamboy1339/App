@@ -18,7 +18,7 @@ import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MDSFooter(
-    type: FooterType,
+    showIcon: Boolean,
     title: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
@@ -37,7 +37,7 @@ fun MDSFooter(
         onClick = onClick
     ) {
         MDSIconText(
-            leftIcon = (type == FooterType.REFRESH),
+            leftIcon = showIcon,
             title = title,
             titleColor = MDSColor.Black,
             modifier = Modifier.wrapContentSize(),
@@ -51,7 +51,7 @@ fun MDSFooter(
 private fun FooterRefreshPreview() {
     AppPreview {
         MDSFooter(
-            type = FooterType.REFRESH,
+            showIcon = true,
             title = "새로운 추천",
             modifier = Modifier.fillMaxWidth()
         )
@@ -63,7 +63,7 @@ private fun FooterRefreshPreview() {
 private fun FooterMorePreview() {
     AppPreview {
         MDSFooter(
-            type = FooterType.MORE,
+            showIcon = false,
             title = "더보기",
             modifier = Modifier.fillMaxWidth()
         )

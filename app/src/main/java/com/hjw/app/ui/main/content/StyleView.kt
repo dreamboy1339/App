@@ -75,7 +75,7 @@ private fun FirstStyleRow(
             modifier = Modifier
                 .weight(2f)
                 .padding(1.dp)
-                .border(width = 1.dp, color = MDSColor.Orange),
+                .border(width = 1.dp, color = MDSColor.Orange), // test
             thumbnailUrl = styles[0].thumbnailUrl,
             hasCoupon = false
         )
@@ -86,14 +86,14 @@ private fun FirstStyleRow(
             MDSProductImage(
                 modifier = Modifier
                     .padding(1.dp)
-                    .border(width = 1.dp, color = MDSColor.Orange),
+                    .border(width = 1.dp, color = MDSColor.Orange), // test
                 thumbnailUrl = styles[1].thumbnailUrl,
                 hasCoupon = false
             )
             MDSProductImage(
                 modifier = Modifier
                     .padding(1.dp)
-                    .border(width = 1.dp, color = MDSColor.Orange),
+                    .border(width = 1.dp, color = MDSColor.Orange), // test
                 thumbnailUrl = styles[2].thumbnailUrl,
                 hasCoupon = false
             )
