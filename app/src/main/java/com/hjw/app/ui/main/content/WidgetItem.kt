@@ -1,8 +1,7 @@
-package com.hjw.app.ui.main
+package com.hjw.app.ui.main.content
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.hjw.app.ui.main.content.WidgetContent
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
