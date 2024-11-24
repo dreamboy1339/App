@@ -15,8 +15,7 @@ import timber.log.Timber
 @Composable
 fun MainContent(
     mainUiState: MainUiState,
-    modifier: Modifier = Modifier,
-    onFooterClick: (FooterType) -> Unit = {},
+    modifier: Modifier = Modifier
 ) {
     Timber.i("$mainUiState")
     when (mainUiState) {
@@ -27,7 +26,6 @@ fun MainContent(
             MainBody(
                 widgets = mainUiState.data,
                 modifier = modifier,
-                onFooterClick = onFooterClick
             )
         }
     }

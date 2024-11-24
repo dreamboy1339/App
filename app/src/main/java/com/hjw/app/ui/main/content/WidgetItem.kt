@@ -11,7 +11,6 @@ import com.hjw.domain.model.Widget
 fun WidgetItem(
     widget: Widget,
     modifier: Modifier = Modifier,
-    onFooterClick: (FooterType) -> Unit,
 ) {
     val header = widget.header
     if (header != null) {
@@ -36,7 +35,7 @@ fun WidgetItem(
             title = footer.title,
             showIcon = (type == FooterType.REFRESH),
             onClick = {
-                onFooterClick(type)
+
             }
         )
     }

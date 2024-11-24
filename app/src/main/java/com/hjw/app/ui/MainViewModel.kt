@@ -1,5 +1,6 @@
 package com.hjw.app.ui
 
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hjw.designsystem.component.footer.FooterType
@@ -48,10 +49,6 @@ class MainViewModel @Inject constructor(
 
     private fun sendUiState(state: MainUiState) {
         _uiState.update { state }
-    }
-
-    fun onFooterClick(type: FooterType) {
-        Timber.d("onFooterClick() called with: type = $type")
     }
 }
 

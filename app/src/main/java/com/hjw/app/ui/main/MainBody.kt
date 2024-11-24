@@ -10,14 +10,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.app.ui.main.content.WidgetItem
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.model.Widgets
 
 @Composable
 fun MainBody(
     widgets: Widgets,
     modifier: Modifier = Modifier,
-    onFooterClick: (FooterType) -> Unit = {},
 ) {
     LazyColumn(
         modifier = modifier
@@ -32,7 +30,6 @@ fun MainBody(
                         .fillMaxWidth()
                         .padding(horizontal = 12.dp),
                     widget = widget,
-                    onFooterClick = onFooterClick
                 )
             }
         }
