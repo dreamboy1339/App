@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     kapt {
@@ -65,6 +66,8 @@ dependencies {
 
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.timber)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

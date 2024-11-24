@@ -1,6 +1,5 @@
 package com.hjw.app.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hjw.designsystem.component.footer.FooterType
@@ -14,6 +13,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -37,12 +37,12 @@ class MainViewModel @Inject constructor(
     }
 
     private fun handleError(error: WidgetError) {
-        Log.d("fog", "handleError() called with: error = $error")
+        Timber.d("handleError() called with: error = $error")
         sendUiState(state = MainUiState.Error(error = error))
     }
 
     private fun handleSuccess(data: Widgets) {
-        Log.d("fog", "handleSuccess() called with: data = $data")
+        Timber.d("handleSuccess() called with: data = $data")
         sendUiState(state = MainUiState.Success(data = data))
     }
 
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun onFooterClick(type: FooterType) {
-        Log.d("fog", "onFooterClick() called")
+        Timber.d("onFooterClick() called with: type = $type")
     }
 }
 

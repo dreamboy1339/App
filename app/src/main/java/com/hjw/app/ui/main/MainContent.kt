@@ -1,6 +1,5 @@
 package com.hjw.app.ui.main
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -11,6 +10,7 @@ import com.hjw.app.ui.common.LoadingBody
 import com.hjw.designsystem.AppPreview
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.common.WidgetError
+import timber.log.Timber
 
 @Composable
 fun MainContent(
@@ -18,7 +18,7 @@ fun MainContent(
     modifier: Modifier = Modifier,
     onFooterClick: (FooterType) -> Unit = {},
 ) {
-    Log.i("fog", "$mainUiState")
+    Timber.i("$mainUiState")
     when (mainUiState) {
         MainUiState.Idle -> EmptyBody(modifier = modifier)
         MainUiState.Loading -> LoadingBody(modifier = modifier, shown = true)
