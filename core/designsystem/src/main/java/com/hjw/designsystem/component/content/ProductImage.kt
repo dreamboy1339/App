@@ -22,7 +22,6 @@ import com.hjw.designsystem.theme.MDSColor
 @Composable
 fun MDSProductImage(
     thumbnailUrl: String,
-    brandName: String,
     hasCoupon: Boolean,
     modifier: Modifier = Modifier,
 ) {
@@ -33,7 +32,7 @@ fun MDSProductImage(
         AsyncImage(
             contentScale = ContentScale.FillHeight,
             model = thumbnailUrl,
-            contentDescription = brandName,
+            contentDescription = null,
             modifier = Modifier
                 .fillMaxSize()
         )
@@ -68,7 +67,6 @@ private fun ProductImageWithCouponPreview() {
     AppPreview {
         MDSProductImage(
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
-            brandName = "아스트랄 프로젝션",
             hasCoupon = true,
             modifier = Modifier.width(150.dp)
         )
@@ -81,7 +79,6 @@ private fun ProductImageWithNoCouponPreview() {
     AppPreview {
         MDSProductImage(
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
-            brandName = "아스트랄 프로젝션",
             hasCoupon = false,
             modifier = Modifier.width(150.dp)
         )
