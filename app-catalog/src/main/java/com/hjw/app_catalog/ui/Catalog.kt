@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.MDSBanner
 import com.hjw.designsystem.component.content.MDSProduct
 import com.hjw.designsystem.component.footer.MDSFooter
-import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.designsystem.theme.AppTheme
 import com.hjw.designsystem.theme.Spacing
@@ -142,14 +141,14 @@ fun Catalog() {
                 }
                 item {
                     MDSFooter(
-                        type = FooterType.REFRESH,
+                        showIcon = true,
                         title = "새로운 추천",
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
                 item {
                     MDSFooter(
-                        type = FooterType.MORE,
+                        showIcon = false,
                         title = "더보기",
                         modifier = Modifier.fillMaxWidth()
                     )

@@ -14,7 +14,7 @@ import com.hjw.domain.model.Widget
 @Composable
 fun WidgetItem(
     widget: Widget,
-    onFooterClick: () -> Unit,
+    onFooterClick: (FooterType) -> Unit,
 ) {
     val header = widget.header
     if (header != null) {
@@ -32,13 +32,16 @@ fun WidgetItem(
 
     val footer = widget.footer
     if (footer != null) {
+        val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 12.dp),
-            type = FooterType.safeValueOf(footer.type),
             title = footer.title,
-            onClick = onFooterClick
+            showIcon = (type == FooterType.REFRESH),
+            onClick = {
+                onFooterClick(type)
+            }
         )
     }
 }

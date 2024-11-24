@@ -9,13 +9,14 @@ import com.hjw.app.ui.common.EmptyBody
 import com.hjw.app.ui.common.ErrorBody
 import com.hjw.app.ui.common.LoadingBody
 import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.common.WidgetError
 
 @Composable
 fun MainContent(
     mainUiState: MainUiState,
     modifier: Modifier = Modifier,
-    onFooterClick: () -> Unit = {},
+    onFooterClick: (FooterType) -> Unit = {},
 ) {
     Log.i("fog", "$mainUiState")
     when (mainUiState) {

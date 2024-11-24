@@ -3,6 +3,7 @@ package com.hjw.app.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.common.Result
 import com.hjw.domain.common.WidgetError
 import com.hjw.domain.model.Widgets
@@ -49,7 +50,7 @@ class MainViewModel @Inject constructor(
         _uiState.update { state }
     }
 
-    fun onFooterClick() {
+    fun onFooterClick(type: FooterType) {
         Log.d("fog", "onFooterClick() called")
     }
 }
