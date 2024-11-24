@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -18,7 +19,6 @@ fun ScrollView(
     goods: Goods,
     modifier: Modifier = Modifier,
 ) {
-
     LazyHorizontalGrid(
         modifier = modifier
             .height(500.dp),
@@ -26,8 +26,7 @@ fun ScrollView(
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        items(count = goods.size) {
-            val product = goods[it]
+        items(goods) { product ->
             MDSProduct(
                 modifier = Modifier
                     .width(150.dp)
