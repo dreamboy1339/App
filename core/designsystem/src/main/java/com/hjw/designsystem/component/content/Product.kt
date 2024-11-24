@@ -35,17 +35,14 @@ fun MDSProduct(
 ) {
     Column(
         modifier = modifier
-            .background(color = MDSColor.White)
     ) {
         MDSProductImage(
-            modifier = modifier,
             thumbnailUrl = thumbnailUrl,
             brandName = brandName,
             hasCoupon = hasCoupon
         )
         Spacer(modifier = Modifier.height(Spacing.xs))
         MDSProductInfo(
-            modifier = modifier,
             brandName = brandName,
             price = price,
             saleRate = saleRate
@@ -58,7 +55,7 @@ private fun MDSProductInfo(
     brandName: String,
     price: Int,
     saleRate: Int,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     Text(
         modifier = modifier
