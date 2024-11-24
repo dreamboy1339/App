@@ -26,6 +26,7 @@ fun GridView(
     columns: Int = TYPE_GRID_COLUMNS,
     rows: Int = TYPE_GRID_ROWS,
     modifier: Modifier = Modifier,
+    onLoadMore: (Boolean) -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -34,9 +35,11 @@ fun GridView(
     ) {
         for (row in 0 until rows) {
             GridRow(
+                rows = rows,
                 columns = columns,
                 row = row,
-                goods = goods
+                goods = goods,
+                onLoadMore = onLoadMore
             )
         }
     }
@@ -44,9 +47,11 @@ fun GridView(
 
 @Composable
 private fun GridRow(
+    rows: Int,
     columns: Int,
     row: Int,
     goods: Goods,
+    onLoadMore: (Boolean) -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -54,6 +59,9 @@ private fun GridRow(
             .wrapContentHeight()
             .padding(bottom = 20.dp)
     ) {
+        val totalCount = goods.size
+        val maxRows = calculateAvailableMaxRowSize(totalCount, columns)
+
         for (column in 0 until columns) {
             val position = calculateProductPosition(
                 row = row,
@@ -61,12 +69,23 @@ private fun GridRow(
                 columns = columns
             )
 
-            if (position >= goods.size) {
+            val isPositionAvailable = calculatePositionAvailable(position, maxRows, columns)
+
+            // 빈 포지션인 경우 빈 공간을 채운다.
+            if (isPositionAvailable && position >= totalCount) {
                 EmptyProduct(
                     modifier = Modifier
                         .weight(1f)
                         .border(1.dp, color = MDSColor.Orange), // test
                 )
+                // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
+                val nextPosition = position + 1
+                onLoadMore(calculatePositionAvailable(nextPosition, maxRows, columns))
+                break
+            }
+
+            // 유효하지 않은 포지션인 경우 멈춘다.
+            if (isPositionAvailable.not()) {
                 break
             }
 
@@ -95,6 +114,18 @@ private fun GridRow(
             }
         }
     }
+}
+
+@Composable
+fun calculatePositionAvailable(position: Int, maxRows: Int, columns: Int): Boolean {
+    return position in 0..<(maxRows * columns)
+}
+
+@Composable
+private fun calculateAvailableMaxRowSize(size: Int, columns: Int): Int {
+    val maxRows = (size / columns) + 1
+    //val emptyColumns = columns - (size % columns)
+    return maxRows
 }
 
 @Composable
