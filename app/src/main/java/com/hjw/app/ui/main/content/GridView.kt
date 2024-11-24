@@ -16,15 +16,11 @@ import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Goods
 
-private const val TYPE_GRID_COLUMNS = 3
-private const val TYPE_GRID_ROWS = 2
-private const val MIDDLE_COLUMN = 1
-
 @Composable
 fun GridView(
     goods: Goods,
-    columns: Int = TYPE_GRID_COLUMNS,
-    rows: Int = TYPE_GRID_ROWS,
+    columns: Int = 3,
+    rows: Int = 2,
     modifier: Modifier = Modifier,
     onLoadMore: (Boolean) -> Unit,
 ) {
@@ -93,6 +89,7 @@ private fun GridRow(
                 position = position,
                 columns = columns
             )
+
             if (isItemPadding) {
                 Spacer(modifier = Modifier.size(Spacing.xxs))
             }
@@ -109,6 +106,7 @@ private fun GridRow(
                 saleRate = product.saleRate,
                 hasCoupon = product.hasCoupon
             )
+
             if (isItemPadding) {
                 Spacer(modifier = Modifier.size(Spacing.xxs))
             }
@@ -117,7 +115,7 @@ private fun GridRow(
 }
 
 @Composable
-fun calculatePositionAvailable(position: Int, maxRows: Int, columns: Int): Boolean {
+private fun calculatePositionAvailable(position: Int, maxRows: Int, columns: Int): Boolean {
     return position in 0..<(maxRows * columns)
 }
 
@@ -143,7 +141,7 @@ private fun EmptyProduct(modifier: Modifier) {
 
 @Composable
 private fun calculateItemPadding(position: Int, columns: Int): Boolean =
-    position % columns == MIDDLE_COLUMN
+    position % columns == 1
 
 @Composable
 private fun calculateProductPosition(row: Int, column: Int, columns: Int) = row * columns + column
