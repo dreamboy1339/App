@@ -61,6 +61,15 @@ private fun GridRow(
                 columns = columns
             )
 
+            if (position >= goods.size) {
+                EmptyProduct(
+                    modifier = Modifier
+                        .weight(1f)
+                        .border(1.dp, color = MDSColor.Orange), // test
+                )
+                break
+            }
+
             val isItemPadding = calculateItemPadding(
                 position = position,
                 columns = columns
@@ -81,12 +90,24 @@ private fun GridRow(
                 saleRate = product.saleRate,
                 hasCoupon = product.hasCoupon
             )
-
             if (isItemPadding) {
                 Spacer(modifier = Modifier.size(Spacing.xxs))
             }
         }
     }
+}
+
+@Composable
+private fun EmptyProduct(modifier: Modifier) {
+    MDSProduct(
+        modifier = modifier,
+        linkUrl = "",
+        thumbnailUrl = "",
+        brandName = "",
+        price = -1,
+        saleRate = -1,
+        hasCoupon = false
+    )
 }
 
 @Composable

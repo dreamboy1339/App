@@ -1,6 +1,10 @@
 package com.hjw.app.ui.main.content.grid
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.hjw.app.ui.main.content.GridView
 import com.hjw.designsystem.component.footer.FooterType
@@ -26,9 +30,12 @@ fun GridItem(
         )
     }
 
+    var rows by remember { mutableIntStateOf(2) }
+
     GridView(
         modifier = modifier,
-        goods = contentItems as Goods
+        goods = contentItems as Goods,
+        rows = rows
     )
 
     val footer = widget.footer
@@ -38,7 +45,9 @@ fun GridItem(
             modifier = modifier,
             title = footer.title,
             showIcon = (type == FooterType.REFRESH),
-            onClick = {}
+            onClick = {
+                rows++
+            }
         )
     }
 }
