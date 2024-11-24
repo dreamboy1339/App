@@ -52,7 +52,7 @@ fun GridItem(
     )
 
     val footer = widget.footer
-    if (footer != null) {
+    if (footer != null && isLoadMore) {
         val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = modifier,
