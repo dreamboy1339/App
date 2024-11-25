@@ -1,4 +1,4 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.banner
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,7 +18,7 @@ import kotlin.math.absoluteValue
 private const val BANNER_SWIPE_DURATION = 3000L
 
 @Composable
-fun BannerItem(
+fun BannerItemView(
     banners: Banners,
     bannerAutoSwipeDuration: Long = BANNER_SWIPE_DURATION,
     modifier: Modifier = Modifier,
@@ -27,7 +27,7 @@ fun BannerItem(
 
     LaunchedEffect(Unit) {
         while (true) {
-            delay(bannerAutoSwipeDuration) // 3초
+            delay(bannerAutoSwipeDuration)
             if (pagerState.currentPage < banners.size - 1) {
                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
             } else {
@@ -56,7 +56,7 @@ fun BannerItem(
                         fraction = 1f - pageOffset.coerceIn(0f, 1f)
                     )
                 },
-            index = (page + 1),
+            index = page.inc(),
             total = banners.size,
             linkUrl = banner.linkUrl,
             thumbnailUrl = banner.thumbnailUrl,

@@ -1,22 +1,23 @@
-package com.hjw.app.ui.main.content.style
+package com.hjw.app.ui.main.content.grid
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.hjw.app.ui.main.content.StyleView
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Widget
 import com.hjw.domain.model.content.Content
-import com.hjw.domain.model.content.Styles
+import com.hjw.domain.model.content.Goods
+
+private const val INIT_GRID_ROW_COUNT = 2
 
 @Composable
-fun StyleItem(
+fun GridItemView(
     widget: Widget,
     modifier: Modifier,
     contentItems: List<Content>,
@@ -31,12 +32,12 @@ fun StyleItem(
         )
     }
 
-    var isLoadMore by remember { mutableStateOf(true) }
+    var isLoadMore by rememberSaveable { mutableStateOf(true) }
     val onLoadMore: (Boolean) -> Unit = {
         isLoadMore = it
     }
 
-    var rows by remember { mutableIntStateOf(2) }
+    var rows by rememberSaveable { mutableIntStateOf(INIT_GRID_ROW_COUNT) }
     val onMoreClick: () -> Unit = {
         // 더보기 가능한 상태일 때만 행을 추가한다.
         if (isLoadMore) {
@@ -44,9 +45,9 @@ fun StyleItem(
         }
     }
 
-    StyleView(
+    GridView(
         modifier = modifier,
-        styles = contentItems as Styles,
+        goods = contentItems as Goods,
         rows = rows,
         onLoadMore = onLoadMore
     )

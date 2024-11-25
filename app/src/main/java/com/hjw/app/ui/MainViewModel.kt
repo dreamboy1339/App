@@ -1,9 +1,7 @@
 package com.hjw.app.ui
 
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.common.Result
 import com.hjw.domain.common.WidgetError
 import com.hjw.domain.model.Widgets
@@ -29,12 +27,17 @@ class MainViewModel @Inject constructor(
     }
 
     private fun fetchWidgetList() {
+        showLoading()
         viewModelScope.launch {
             when (val result = fetchWidgetListUseCase()) {
                 is Result.Error -> handleError(result.error)
                 is Result.Success -> handleSuccess(result.data)
             }
         }
+    }
+
+    private fun showLoading() {
+        sendUiState(MainUiState.Loading)
     }
 
     private fun handleError(error: WidgetError) {

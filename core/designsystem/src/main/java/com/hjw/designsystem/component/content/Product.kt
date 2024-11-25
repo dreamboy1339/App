@@ -24,12 +24,11 @@ import com.hjw.designsystem.theme.Spacing
 
 @Composable
 fun MDSProduct(
-    linkUrl: String,
-    thumbnailUrl: String,
-    brandName: String,
-    price: Int,
-    saleRate: Int,
-    hasCoupon: Boolean,
+    thumbnailUrl: String = "",
+    brandName: String = "",
+    price: Int = -1,
+    saleRate: Int = -1,
+    hasCoupon: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -106,7 +105,6 @@ private fun stringSaleRate(saleRate: Int) = stringResource(R.string.txt_sale_rat
 private fun ProductPreview() {
     AppPreview {
         MDSProduct(
-            linkUrl = "https://www.musinsa.com/app/goods/2281818",
             thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
             brandName = "아스트랄 프로젝션 아스트랄 프로젝션 아스트랄 프로젝션",
             price = 39900,
@@ -121,14 +119,6 @@ private fun ProductPreview() {
 @Composable
 private fun ProductWithNoInfoPreview() {
     AppPreview {
-        MDSProduct(
-            linkUrl = "",
-            thumbnailUrl = "",
-            brandName = "",
-            price = -1,
-            saleRate = -1,
-            hasCoupon = true,
-            modifier = Modifier.width(150.dp)
-        )
+        MDSProduct(modifier = Modifier.width(150.dp))
     }
 }

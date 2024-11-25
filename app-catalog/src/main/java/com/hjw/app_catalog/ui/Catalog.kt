@@ -115,7 +115,6 @@ fun Catalog() {
                 }
                 item {
                     MDSProduct(
-                        linkUrl = "https://www.musinsa.com/app/goods/2281818",
                         thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
                         brandName = "아스트랄 프로젝션",
                         price = 39900,
@@ -126,7 +125,6 @@ fun Catalog() {
                 }
                 item {
                     MDSProduct(
-                        linkUrl = "https://www.musinsa.com/app/goods/2281818",
                         thumbnailUrl = "https://image.msscdn.net/images/goods_img/20211224/2281818/2281818_1_320.jpg",
                         brandName = "아스트랄 프로젝션",
                         price = 39900,

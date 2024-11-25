@@ -1,7 +1,5 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.grid
 
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,39 +9,16 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.hjw.app.ui.main.content.calculateAvailableMaxRowCount
+import com.hjw.app.ui.main.content.calculateItemPosition
+import com.hjw.app.ui.main.content.isApplyItemPadding
+import com.hjw.app.ui.main.content.isItemPositionAvailable
 import com.hjw.designsystem.component.content.MDSProduct
-import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Goods
 
 @Composable
-fun GridView(
-    goods: Goods,
-    columns: Int = 3,
-    rows: Int = 2,
-    modifier: Modifier = Modifier,
-    onLoadMore: (Boolean) -> Unit,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
-    ) {
-        for (row in 0 until rows) {
-            GridRow(
-                rows = rows,
-                columns = columns,
-                row = row,
-                goods = goods,
-                onLoadMore = onLoadMore
-            )
-        }
-    }
-}
-
-@Composable
-private fun GridRow(
-    rows: Int,
+fun GridRow(
     columns: Int,
     row: Int,
     goods: Goods,
@@ -56,27 +31,26 @@ private fun GridRow(
             .padding(bottom = 20.dp)
     ) {
         val totalCount = goods.size
-        val maxRows = calculateAvailableMaxRowSize(totalCount, columns)
+        val maxRows = calculateAvailableMaxRowCount(totalCount, columns)
 
         for (column in 0 until columns) {
-            val position = calculateProductPosition(
+            val position = calculateItemPosition(
                 row = row,
                 column = column,
                 columns = columns
             )
 
-            val isPositionAvailable = calculatePositionAvailable(position, maxRows, columns)
+            val isPositionAvailable = isItemPositionAvailable(position, maxRows, columns)
 
             // 빈 포지션인 경우 빈 공간을 채운다.
             if (isPositionAvailable && position >= totalCount) {
                 EmptyProduct(
                     modifier = Modifier
-                        .weight(1f)
-                        .border(1.dp, color = MDSColor.Orange), // test
+                        .weight(1f),
                 )
                 // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
                 val nextPosition = position + 1
-                onLoadMore(calculatePositionAvailable(nextPosition, maxRows, columns))
+                onLoadMore(isItemPositionAvailable(nextPosition, maxRows, columns))
                 break
             }
 
@@ -85,7 +59,7 @@ private fun GridRow(
                 break
             }
 
-            val isItemPadding = calculateItemPadding(
+            val isItemPadding = isApplyItemPadding(
                 position = position,
                 columns = columns
             )
@@ -97,9 +71,7 @@ private fun GridRow(
             val product = goods[position]
             MDSProduct(
                 modifier = Modifier
-                    .weight(1f)
-                    .border(1.dp, color = MDSColor.Orange), // test
-                linkUrl = product.linkUrl,
+                    .weight(1f),
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,
                 price = product.price,
@@ -113,35 +85,3 @@ private fun GridRow(
         }
     }
 }
-
-@Composable
-private fun calculatePositionAvailable(position: Int, maxRows: Int, columns: Int): Boolean {
-    return position in 0..<(maxRows * columns)
-}
-
-@Composable
-private fun calculateAvailableMaxRowSize(size: Int, columns: Int): Int {
-    val maxRows = (size / columns) + 1
-    //val emptyColumns = columns - (size % columns)
-    return maxRows
-}
-
-@Composable
-private fun EmptyProduct(modifier: Modifier) {
-    MDSProduct(
-        modifier = modifier,
-        linkUrl = "",
-        thumbnailUrl = "",
-        brandName = "",
-        price = -1,
-        saleRate = -1,
-        hasCoupon = false
-    )
-}
-
-@Composable
-private fun calculateItemPadding(position: Int, columns: Int): Boolean =
-    position % columns == 1
-
-@Composable
-private fun calculateProductPosition(row: Int, column: Int, columns: Int) = row * columns + column

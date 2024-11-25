@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.hjw.app.ui.main.content.ScrollView
 import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
@@ -15,7 +14,7 @@ import com.hjw.domain.model.content.Content
 import com.hjw.domain.model.content.Goods
 
 @Composable
-fun ScrollItem(
+fun ScrollItemView(
     widget: Widget,
     modifier: Modifier,
     contentItems: List<Content>,
@@ -32,7 +31,6 @@ fun ScrollItem(
 
     var goods by remember { mutableStateOf(contentItems as Goods) }
     val onRefreshClick: () -> Unit = {
-        // Refresh 가능한 상태일 때만 행을 추가한다.
         goods = Goods(goods.shuffled())
     }
 

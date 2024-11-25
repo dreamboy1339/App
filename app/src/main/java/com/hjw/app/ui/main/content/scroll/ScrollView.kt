@@ -1,6 +1,5 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.scroll
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -9,9 +8,10 @@ import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.hjw.app.R
 import com.hjw.designsystem.component.content.MDSProduct
-import com.hjw.designsystem.theme.MDSColor
 import com.hjw.domain.model.content.Goods
 
 @Composable
@@ -21,17 +21,15 @@ fun ScrollView(
 ) {
     LazyHorizontalGrid(
         modifier = modifier
-            .height(500.dp),
+            .height(500.dp), // todo : 여기 수정해야 함.
         rows = GridCells.Fixed(2),
-        horizontalArrangement = Arrangement.spacedBy(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_horizontal_spacing)),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_vertical_spacing))
     ) {
         items(goods) { product ->
             MDSProduct(
                 modifier = Modifier
-                    .width(150.dp)
-                    .border(1.dp, color = MDSColor.Orange), // test
-                linkUrl = product.linkUrl,
+                    .width(dimensionResource(R.dimen.product_width)),
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,
                 price = product.price,
