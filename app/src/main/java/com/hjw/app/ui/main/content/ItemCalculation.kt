@@ -1,4 +1,4 @@
-package com.hjw.app.ui.common
+package com.hjw.app.ui.main.content
 
 import androidx.compose.runtime.Composable
 

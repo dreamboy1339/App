@@ -9,10 +9,10 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.hjw.app.ui.common.calculateAvailableMaxRowCount
-import com.hjw.app.ui.common.calculateItemPosition
-import com.hjw.app.ui.common.isApplyItemPadding
-import com.hjw.app.ui.common.isItemPositionAvailable
+import com.hjw.app.ui.main.content.calculateAvailableMaxRowCount
+import com.hjw.app.ui.main.content.calculateItemPosition
+import com.hjw.app.ui.main.content.isApplyItemPadding
+import com.hjw.app.ui.main.content.isItemPositionAvailable
 import com.hjw.designsystem.component.content.MDSProduct
 import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Goods
