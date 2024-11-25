@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.hjw.designsystem.component.footer.FooterType
@@ -30,12 +30,12 @@ fun GridItemView(
         )
     }
 
-    var isLoadMore by remember { mutableStateOf(true) }
+    var isLoadMore by rememberSaveable { mutableStateOf(true) }
     val onLoadMore: (Boolean) -> Unit = {
         isLoadMore = it
     }
 
-    var rows by remember { mutableIntStateOf(2) }
+    var rows by rememberSaveable { mutableIntStateOf(2) }
     val onMoreClick: () -> Unit = {
         // 더보기 가능한 상태일 때만 행을 추가한다.
         if (isLoadMore) {
