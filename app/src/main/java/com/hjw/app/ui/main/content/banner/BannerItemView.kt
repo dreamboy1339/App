@@ -18,7 +18,7 @@ import kotlin.math.absoluteValue
 private const val BANNER_SWIPE_DURATION = 3000L
 
 @Composable
-fun BannerItem(
+fun BannerItemView(
     banners: Banners,
     bannerAutoSwipeDuration: Long = BANNER_SWIPE_DURATION,
     modifier: Modifier = Modifier,

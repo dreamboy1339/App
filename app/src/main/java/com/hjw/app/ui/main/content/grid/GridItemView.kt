@@ -1,4 +1,4 @@
-package com.hjw.app.ui.main.content.style
+package com.hjw.app.ui.main.content.grid
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,10 +12,10 @@ import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Widget
 import com.hjw.domain.model.content.Content
-import com.hjw.domain.model.content.Styles
+import com.hjw.domain.model.content.Goods
 
 @Composable
-fun StyleItem(
+fun GridItemView(
     widget: Widget,
     modifier: Modifier,
     contentItems: List<Content>,
@@ -43,9 +43,9 @@ fun StyleItem(
         }
     }
 
-    StyleView(
+    GridView(
         modifier = modifier,
-        styles = contentItems as Styles,
+        goods = contentItems as Goods,
         rows = rows,
         onLoadMore = onLoadMore
     )

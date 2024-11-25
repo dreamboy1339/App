@@ -21,15 +21,16 @@ fun StyleView(
             .wrapContentHeight()
     ) {
         for (row in 0 until rows) {
-            if (row == 0) {
-                FirstStyleRow(styles.subList(0, 3))
-            } else {
-                StyleRow(
-                    columns = columns,
-                    row = row,
-                    styles = styles,
-                    onLoadMore = onLoadMore
-                )
+            when (row) {
+                0 -> FirstStyleRow(styles.subList(0, 3))
+                else -> {
+                    StyleRow(
+                        columns = columns,
+                        row = row,
+                        styles = styles,
+                        onLoadMore = onLoadMore
+                    )
+                }
             }
         }
     }

@@ -10,10 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hjw.app.ui.main.content.banner.BannerItem
-import com.hjw.app.ui.main.content.grid.GridItem
-import com.hjw.app.ui.main.content.scroll.ScrollItem
-import com.hjw.app.ui.main.content.style.StyleItem
+import com.hjw.app.ui.main.content.banner.BannerItemView
+import com.hjw.app.ui.main.content.grid.GridItemView
+import com.hjw.app.ui.main.content.scroll.ScrollItemView
+import com.hjw.app.ui.main.content.style.StyleItemView
 import com.hjw.designsystem.AppPreview
 import com.hjw.domain.common.ContentType
 import com.hjw.domain.model.Widgets
@@ -39,13 +39,13 @@ fun MainBody(
                 when (contentType) {
                     ContentType.NONE -> {}
                     ContentType.BANNER -> {
-                        BannerItem(
+                        BannerItemView(
                             banners = contentItems as Banners
                         )
                     }
 
                     ContentType.GRID -> {
-                        GridItem(
+                        GridItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 12.dp),
@@ -55,7 +55,7 @@ fun MainBody(
                     }
 
                     ContentType.SCROLL -> {
-                        ScrollItem(
+                        ScrollItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 12.dp),
@@ -65,7 +65,7 @@ fun MainBody(
                     }
 
                     ContentType.STYLE -> {
-                        StyleItem(
+                        StyleItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(horizontal = 12.dp),

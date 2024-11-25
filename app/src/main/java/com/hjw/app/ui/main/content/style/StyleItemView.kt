@@ -1,7 +1,8 @@
-package com.hjw.app.ui.main.content.scroll
+package com.hjw.app.ui.main.content.style
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -11,10 +12,10 @@ import com.hjw.designsystem.component.footer.MDSFooter
 import com.hjw.designsystem.component.header.MDSHeader
 import com.hjw.domain.model.Widget
 import com.hjw.domain.model.content.Content
-import com.hjw.domain.model.content.Goods
+import com.hjw.domain.model.content.Styles
 
 @Composable
-fun ScrollItem(
+fun StyleItemView(
     widget: Widget,
     modifier: Modifier,
     contentItems: List<Content>,
@@ -29,24 +30,34 @@ fun ScrollItem(
         )
     }
 
-    var goods by remember { mutableStateOf(contentItems as Goods) }
-    val onRefreshClick: () -> Unit = {
-        goods = Goods(goods.shuffled())
+    var isLoadMore by remember { mutableStateOf(true) }
+    val onLoadMore: (Boolean) -> Unit = {
+        isLoadMore = it
     }
 
-    ScrollView(
+    var rows by remember { mutableIntStateOf(2) }
+    val onMoreClick: () -> Unit = {
+        // 더보기 가능한 상태일 때만 행을 추가한다.
+        if (isLoadMore) {
+            rows++
+        }
+    }
+
+    StyleView(
         modifier = modifier,
-        goods = goods
+        styles = contentItems as Styles,
+        rows = rows,
+        onLoadMore = onLoadMore
     )
 
     val footer = widget.footer
-    if (footer != null) {
+    if (footer != null && isLoadMore) {
         val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = modifier,
             title = footer.title,
             showIcon = (type == FooterType.REFRESH),
-            onClick = onRefreshClick
+            onClick = onMoreClick
         )
     }
 }

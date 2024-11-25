@@ -1,8 +1,7 @@
-package com.hjw.app.ui.main.content.grid
+package com.hjw.app.ui.main.content.scroll
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -15,7 +14,7 @@ import com.hjw.domain.model.content.Content
 import com.hjw.domain.model.content.Goods
 
 @Composable
-fun GridItem(
+fun ScrollItemView(
     widget: Widget,
     modifier: Modifier,
     contentItems: List<Content>,
@@ -30,34 +29,24 @@ fun GridItem(
         )
     }
 
-    var isLoadMore by remember { mutableStateOf(true) }
-    val onLoadMore: (Boolean) -> Unit = {
-        isLoadMore = it
+    var goods by remember { mutableStateOf(contentItems as Goods) }
+    val onRefreshClick: () -> Unit = {
+        goods = Goods(goods.shuffled())
     }
 
-    var rows by remember { mutableIntStateOf(2) }
-    val onMoreClick: () -> Unit = {
-        // 더보기 가능한 상태일 때만 행을 추가한다.
-        if (isLoadMore) {
-            rows++
-        }
-    }
-
-    GridView(
+    ScrollView(
         modifier = modifier,
-        goods = contentItems as Goods,
-        rows = rows,
-        onLoadMore = onLoadMore
+        goods = goods
     )
 
     val footer = widget.footer
-    if (footer != null && isLoadMore) {
+    if (footer != null) {
         val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = modifier,
             title = footer.title,
             showIcon = (type == FooterType.REFRESH),
-            onClick = onMoreClick
+            onClick = onRefreshClick
         )
     }
 }
