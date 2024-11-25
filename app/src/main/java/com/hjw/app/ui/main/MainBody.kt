@@ -1,5 +1,6 @@
 package com.hjw.app.ui.main
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -8,8 +9,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.hjw.app.R
 import com.hjw.app.ui.main.content.banner.BannerItemView
 import com.hjw.app.ui.main.content.grid.GridItemView
 import com.hjw.app.ui.main.content.scroll.ScrollItemView
@@ -36,6 +38,7 @@ fun MainBody(
                 val contentType = contents.type
                 val contentItems = contents.contentItems
 
+                val horizontalPadding = dimensionResource(R.dimen.content_horizontal_padding)
                 when (contentType) {
                     ContentType.NONE -> {}
                     ContentType.BANNER -> {
@@ -48,7 +51,7 @@ fun MainBody(
                         GridItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 12.dp),
+                                .padding(horizontal = horizontalPadding),
                             widget = widget,
                             contentItems = contentItems
                         )
@@ -58,7 +61,7 @@ fun MainBody(
                         ScrollItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 12.dp),
+                                .padding(horizontal = horizontalPadding),
                             widget = widget,
                             contentItems = contentItems
                         )
@@ -68,7 +71,7 @@ fun MainBody(
                         StyleItemView(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 12.dp),
+                                .padding(horizontal = horizontalPadding),
                             widget = widget,
                             contentItems = contentItems
                         )
@@ -76,7 +79,7 @@ fun MainBody(
                 }
             }
             item {
-                Spacer(modifier = Modifier.size(18.dp))
+                Spacer(modifier = Modifier.size(dimensionResource(R.dimen.bottom_spacing)))
             }
         }
     )

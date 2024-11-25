@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.hjw.app.R
@@ -29,7 +29,7 @@ fun MainScreen() {
                 modifier = Modifier
                     .background(color = MDSColor.White)
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(dimensionResource(R.dimen.toolbar_padding)),
                 text = stringResource(R.string.title_top_bar),
                 style = MaterialTheme.typography.headlineSmall
             )
