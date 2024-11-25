@@ -32,7 +32,6 @@ fun ScrollItem(
 
     var goods by remember { mutableStateOf(contentItems as Goods) }
     val onRefreshClick: () -> Unit = {
-        // Refresh 가능한 상태일 때만 행을 추가한다.
         goods = Goods(goods.shuffled())
     }
 

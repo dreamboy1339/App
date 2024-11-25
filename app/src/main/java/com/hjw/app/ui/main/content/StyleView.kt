@@ -1,6 +1,5 @@
 package com.hjw.app.ui.main.content
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,11 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.hjw.app.ui.common.calculateAvailableMaxRowCount
-import com.hjw.app.ui.common.isApplyItemPadding
 import com.hjw.app.ui.common.calculateItemPosition
+import com.hjw.app.ui.common.isApplyItemPadding
 import com.hjw.app.ui.common.isItemPositionAvailable
 import com.hjw.designsystem.component.content.MDSProductImage
-import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Style
 import com.hjw.domain.model.content.Styles
@@ -78,8 +76,7 @@ private fun StyleRow(
                 EmptyProductImage(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(1.dp)
-                        .border(width = 1.dp, color = MDSColor.Orange)
+                        .padding(1.dp),
                 )
                 // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
                 val nextPosition = position + 1
@@ -105,8 +102,7 @@ private fun StyleRow(
             MDSProductImage(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(1.dp)
-                    .border(width = 1.dp, color = MDSColor.Orange),
+                    .padding(1.dp),
                 thumbnailUrl = product.thumbnailUrl,
                 hasCoupon = false
             )
@@ -139,8 +135,7 @@ private fun FirstStyleRow(
         MDSProductImage(
             modifier = Modifier
                 .weight(2f)
-                .padding(1.dp)
-                .border(width = 1.dp, color = MDSColor.Orange), // test
+                .padding(1.dp),
             thumbnailUrl = styles[0].thumbnailUrl,
             hasCoupon = false
         )
@@ -150,15 +145,13 @@ private fun FirstStyleRow(
         ) {
             MDSProductImage(
                 modifier = Modifier
-                    .padding(1.dp)
-                    .border(width = 1.dp, color = MDSColor.Orange), // test
+                    .padding(1.dp),
                 thumbnailUrl = styles[1].thumbnailUrl,
                 hasCoupon = false
             )
             MDSProductImage(
                 modifier = Modifier
-                    .padding(1.dp)
-                    .border(width = 1.dp, color = MDSColor.Orange), // test
+                    .padding(1.dp),
                 thumbnailUrl = styles[2].thumbnailUrl,
                 hasCoupon = false
             )
