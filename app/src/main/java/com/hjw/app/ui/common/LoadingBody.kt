@@ -8,7 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.hjw.designsystem.AppPreview
 
 @Composable
 fun LoadingBody(
@@ -26,5 +28,13 @@ fun LoadingBody(
             color = MaterialTheme.colorScheme.secondary,
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
         )
+    }
+}
+
+@Preview
+@Composable
+private fun LoadingPreview() {
+    AppPreview {
+        LoadingBody(shown = true)
     }
 }
