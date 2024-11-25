@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="loading_width">64dp</dimen>
+
+    <dimen name="toolbar_padding">16dp</dimen>
+    <dimen name="content_horizontal_padding">12dp</dimen>
+    <dimen name="bottom_spacing">18dp</dimen>
+
+
+</resources>
