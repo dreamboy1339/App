@@ -15,6 +15,11 @@ class Styles(styleList: List<Style>) : List<Style> by styleList {
         return Styles(subList(0, STYLE_COLUMN_COUNT))
     }
 
+    fun checkFirstRowAvailable(): Boolean {
+        val styles = fetchFirstRowStyles()
+        return styles.isEmpty().not()
+    }
+
     companion object {
         private const val STYLE_COLUMN_COUNT = 3
     }

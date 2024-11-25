@@ -12,7 +12,7 @@ import com.hjw.designsystem.component.content.MDSProductImage
 import com.hjw.domain.model.content.Styles
 
 @Composable
-fun FirstStyleRow(
+fun FirstStyleRowBase(
     styles: Styles,
     modifier: Modifier = Modifier,
 ) {

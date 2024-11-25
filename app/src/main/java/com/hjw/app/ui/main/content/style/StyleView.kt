@@ -18,23 +18,37 @@ fun StyleView(
     rows: Int = INIT_STYLE_ROW_COUNT,
     onLoadMore: (Boolean) -> Unit,
 ) {
+    if (styles.checkFirstRowAvailable().not()) {
+        return
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
         for (row in 0 until rows) {
-            when (row) {
-                0 -> FirstStyleRow(styles = styles.fetchFirstRowStyles())
-                else -> {
-                    StyleRow(
-                        columns = columns,
-                        row = row,
-                        styles = styles,
-                        onLoadMore = onLoadMore
-                    )
-                }
-            }
+            StyleRowBases(row, styles, columns, onLoadMore)
+        }
+    }
+}
+
+@Composable
+private fun StyleRowBases(
+    row: Int,
+    styles: Styles,
+    columns: Int,
+    onLoadMore: (Boolean) -> Unit,
+) {
+    when (row) {
+        0 -> FirstStyleRowBase(styles = styles.fetchFirstRowStyles())
+        else -> {
+            StyleRowBase(
+                columns = columns,
+                row = row,
+                styles = styles,
+                onLoadMore = onLoadMore
+            )
         }
     }
 }

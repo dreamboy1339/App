@@ -18,7 +18,7 @@ import com.hjw.designsystem.theme.Spacing
 import com.hjw.domain.model.content.Styles
 
 @Composable
-fun StyleRow(
+fun StyleRowBase(
     columns: Int,
     row: Int,
     styles: Styles,
