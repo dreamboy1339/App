@@ -7,12 +7,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.hjw.domain.model.content.Styles
 
+private const val STYLE_COLUMN_COUNT = 3
+private const val INIT_STYLE_ROW_COUNT = 2
+
 @Composable
 fun StyleView(
     styles: Styles,
     modifier: Modifier = Modifier,
-    columns: Int = 3,
-    rows: Int = 2,
+    columns: Int = STYLE_COLUMN_COUNT,
+    rows: Int = INIT_STYLE_ROW_COUNT,
     onLoadMore: (Boolean) -> Unit,
 ) {
     Column(
@@ -22,7 +25,7 @@ fun StyleView(
     ) {
         for (row in 0 until rows) {
             when (row) {
-                0 -> FirstStyleRow(styles.subList(0, 3))
+                0 -> FirstStyleRow(styles.subList(0, STYLE_COLUMN_COUNT))
                 else -> {
                     StyleRow(
                         columns = columns,
