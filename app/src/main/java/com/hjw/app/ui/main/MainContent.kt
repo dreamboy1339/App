@@ -9,14 +9,12 @@ import com.hjw.app.ui.common.ErrorBody
 import com.hjw.app.ui.common.LoadingBody
 import com.hjw.designsystem.AppPreview
 import com.hjw.domain.common.WidgetError
-import timber.log.Timber
 
 @Composable
 fun MainContent(
     uiState: MainUiState,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
-    Timber.i("uiState = $uiState")
     when (uiState) {
         MainUiState.Idle -> EmptyBody(modifier = modifier)
         MainUiState.Loading -> LoadingBody(modifier = modifier, shown = true)

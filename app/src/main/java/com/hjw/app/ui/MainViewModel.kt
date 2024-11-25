@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,12 +40,10 @@ class MainViewModel @Inject constructor(
     }
 
     private fun handleError(error: WidgetError) {
-        Timber.d("handleError() called with: error = $error")
         sendUiState(state = MainUiState.Error(error = error))
     }
 
     private fun handleSuccess(data: Widgets) {
-        Timber.d("handleSuccess() called with: data = $data")
         sendUiState(state = MainUiState.Success(data = data))
     }
 
