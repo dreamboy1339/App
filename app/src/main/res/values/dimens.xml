@@ -2,11 +2,14 @@
 <resources>
 
     <dimen name="loading_width">64dp</dimen>
+    <dimen name="product_width">150dp</dimen>
 
     <dimen name="toolbar_padding">16dp</dimen>
     <dimen name="content_horizontal_padding">12dp</dimen>
-    <dimen name="bottom_spacing">18dp</dimen>
     <dimen name="product_padding">1dp</dimen>
 
+    <dimen name="bottom_spacing">18dp</dimen>
+    <dimen name="scroll_view_horizontal_spacing">16dp</dimen>
+    <dimen name="scroll_view_vertical_spacing">16dp</dimen>
 
 </resources>
