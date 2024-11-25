@@ -1,4 +1,4 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.grid
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
