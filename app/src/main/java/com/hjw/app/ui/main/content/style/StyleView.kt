@@ -25,7 +25,7 @@ fun StyleView(
     ) {
         for (row in 0 until rows) {
             when (row) {
-                0 -> FirstStyleRow(styles.subList(0, STYLE_COLUMN_COUNT))
+                0 -> FirstStyleRow(styles = styles.fetchFirstRowStyles())
                 else -> {
                     StyleRow(
                         columns = columns,

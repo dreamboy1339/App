@@ -9,14 +9,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.component.content.MDSProductImage
-import com.hjw.domain.model.content.Style
+import com.hjw.domain.model.content.Styles
 
 @Composable
 fun FirstStyleRow(
-    styles: List<Style>,
+    styles: Styles,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
     ) {

@@ -49,7 +49,7 @@ fun StyleRow(
                         .padding(1.dp),
                 )
                 // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
-                val nextPosition = position + 1
+                val nextPosition = position.inc()
                 onLoadMore(isItemPositionAvailable(nextPosition, maxRows, columns))
                 break
             }
