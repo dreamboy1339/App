@@ -27,7 +27,12 @@ fun StyleView(
             .wrapContentHeight()
     ) {
         for (row in 0 until rows) {
-            StyleRowBases(row, styles, columns, onLoadMore)
+            StyleRowBases(
+                row = row,
+                styles = styles,
+                columns = columns,
+                onLoadMore = onLoadMore
+            )
         }
     }
 }

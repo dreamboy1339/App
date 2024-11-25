@@ -9,7 +9,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.hjw.app.R
 import com.hjw.designsystem.component.content.MDSProduct
 import com.hjw.domain.model.content.Goods
@@ -21,7 +20,7 @@ fun ScrollView(
 ) {
     LazyHorizontalGrid(
         modifier = modifier
-            .height(500.dp), // todo : 여기 수정해야 함.
+            .height(dimensionResource(R.dimen.scroll_view_height)),
         rows = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_horizontal_spacing)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_vertical_spacing))
