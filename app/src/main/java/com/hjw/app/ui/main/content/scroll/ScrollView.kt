@@ -1,11 +1,10 @@
 package com.hjw.app.ui.main.content.scroll
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -18,12 +17,10 @@ fun ScrollView(
     goods: Goods,
     modifier: Modifier = Modifier,
 ) {
-    LazyHorizontalGrid(
+    LazyRow(
         modifier = modifier
-            .height(dimensionResource(R.dimen.scroll_view_height)),
-        rows = GridCells.Fixed(2),
+            .padding(bottom = dimensionResource(R.dimen.scroll_view_bottom_padding)),
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_horizontal_spacing)),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_vertical_spacing))
     ) {
         items(goods) { product ->
             MDSProduct(
