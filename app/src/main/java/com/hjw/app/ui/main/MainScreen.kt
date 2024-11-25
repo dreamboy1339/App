@@ -39,7 +39,7 @@ fun MainScreen() {
         val mainUiState: MainUiState by viewModel.uiState.collectAsStateWithLifecycle()
 
         MainContent(
-            mainUiState = mainUiState,
+            uiState = mainUiState,
             modifier = Modifier
                 .background(color = Color.White)
                 .padding(it)

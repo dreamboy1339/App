@@ -8,23 +8,22 @@ import com.hjw.app.ui.common.EmptyBody
 import com.hjw.app.ui.common.ErrorBody
 import com.hjw.app.ui.common.LoadingBody
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.footer.FooterType
 import com.hjw.domain.common.WidgetError
 import timber.log.Timber
 
 @Composable
 fun MainContent(
-    mainUiState: MainUiState,
+    uiState: MainUiState,
     modifier: Modifier = Modifier
 ) {
-    Timber.i("$mainUiState")
-    when (mainUiState) {
+    Timber.i("uiState = $uiState")
+    when (uiState) {
         MainUiState.Idle -> EmptyBody(modifier = modifier)
         MainUiState.Loading -> LoadingBody(modifier = modifier, shown = true)
         is MainUiState.Error -> ErrorBody(modifier = modifier, message = "오류가 발생했습니다.")
         is MainUiState.Success -> {
             MainBody(
-                widgets = mainUiState.data,
+                widgets = uiState.data,
                 modifier = modifier,
             )
         }
