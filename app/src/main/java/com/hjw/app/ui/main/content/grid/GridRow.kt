@@ -72,7 +72,6 @@ fun GridRow(
             MDSProduct(
                 modifier = Modifier
                     .weight(1f),
-                linkUrl = product.linkUrl,
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,
                 price = product.price,

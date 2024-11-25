@@ -6,13 +6,5 @@ import com.hjw.designsystem.component.content.MDSProduct
 
 @Composable
 fun EmptyProduct(modifier: Modifier) {
-    MDSProduct(
-        modifier = modifier,
-        linkUrl = "",
-        thumbnailUrl = "",
-        brandName = "",
-        price = -1,
-        saleRate = -1,
-        hasCoupon = false
-    )
+    MDSProduct(modifier = modifier)
 }

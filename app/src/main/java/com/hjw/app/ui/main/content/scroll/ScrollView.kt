@@ -30,7 +30,6 @@ fun ScrollView(
             MDSProduct(
                 modifier = Modifier
                     .width(dimensionResource(R.dimen.product_width)),
-                linkUrl = product.linkUrl,
                 thumbnailUrl = product.thumbnailUrl,
                 brandName = product.brandName,
                 price = product.price,
