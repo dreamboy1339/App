@@ -1,4 +1,4 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.scroll
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.height
