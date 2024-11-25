@@ -6,6 +6,7 @@
     <dimen name="toolbar_padding">16dp</dimen>
     <dimen name="content_horizontal_padding">12dp</dimen>
     <dimen name="bottom_spacing">18dp</dimen>
+    <dimen name="product_padding">1dp</dimen>
 
 
 </resources>

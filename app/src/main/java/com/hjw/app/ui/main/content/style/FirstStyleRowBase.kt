@@ -7,7 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.dimensionResource
+import com.hjw.app.R
 import com.hjw.designsystem.component.content.MDSProductImage
 import com.hjw.domain.model.content.Styles
 
@@ -16,6 +17,7 @@ fun FirstStyleRowBase(
     styles: Styles,
     modifier: Modifier = Modifier,
 ) {
+    val thumbnailUrls = styles.map { it.thumbnailUrl }
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -24,8 +26,8 @@ fun FirstStyleRowBase(
         MDSProductImage(
             modifier = Modifier
                 .weight(2f)
-                .padding(1.dp),
-            thumbnailUrl = styles[0].thumbnailUrl,
+                .padding(dimensionResource(R.dimen.product_padding)),
+            thumbnailUrl = thumbnailUrls[0],
             hasCoupon = false
         )
         Column(
@@ -34,14 +36,14 @@ fun FirstStyleRowBase(
         ) {
             MDSProductImage(
                 modifier = Modifier
-                    .padding(1.dp),
-                thumbnailUrl = styles[1].thumbnailUrl,
+                    .padding(dimensionResource(R.dimen.product_padding)),
+                thumbnailUrl = thumbnailUrls[1],
                 hasCoupon = false
             )
             MDSProductImage(
                 modifier = Modifier
-                    .padding(1.dp),
-                thumbnailUrl = styles[2].thumbnailUrl,
+                    .padding(dimensionResource(R.dimen.product_padding)),
+                thumbnailUrl = thumbnailUrls[2],
                 hasCoupon = false
             )
         }

@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.hjw.app.R
 import com.hjw.app.ui.main.content.calculateAvailableMaxRowCount
 import com.hjw.app.ui.main.content.calculateItemPosition
 import com.hjw.app.ui.main.content.isApplyItemPadding
@@ -46,7 +48,7 @@ fun StyleRowBase(
                 EmptyProductImage(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(1.dp),
+                        .padding(dimensionResource(R.dimen.product_padding)),
                 )
                 // 다음 포지션이 유효한지 확인한 후 더보기 동작 여부를 결정한다.
                 val nextPosition = position.inc()

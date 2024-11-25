@@ -8,15 +8,14 @@ import androidx.compose.ui.Modifier
 import com.hjw.domain.model.content.Styles
 
 private const val STYLE_COLUMN_COUNT = 3
-private const val INIT_STYLE_ROW_COUNT = 2
 
 @Composable
 fun StyleView(
     styles: Styles,
-    modifier: Modifier = Modifier,
+    rows: Int,
     columns: Int = STYLE_COLUMN_COUNT,
-    rows: Int = INIT_STYLE_ROW_COUNT,
-    onLoadMore: (Boolean) -> Unit,
+    onLoadMore: (Boolean) -> Unit = {},
+    modifier: Modifier = Modifier,
 ) {
     if (styles.checkFirstRowAvailable().not()) {
         return

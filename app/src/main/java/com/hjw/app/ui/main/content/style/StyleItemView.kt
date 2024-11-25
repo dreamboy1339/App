@@ -14,6 +14,8 @@ import com.hjw.domain.model.Widget
 import com.hjw.domain.model.content.Content
 import com.hjw.domain.model.content.Styles
 
+private const val INIT_STYLE_ROW_COUNT = 2
+
 @Composable
 fun StyleItemView(
     widget: Widget,
@@ -35,7 +37,7 @@ fun StyleItemView(
         isLoadMore = it
     }
 
-    var rows by rememberSaveable { mutableIntStateOf(2) }
+    var rows by rememberSaveable { mutableIntStateOf(INIT_STYLE_ROW_COUNT) }
     val onMoreClick: () -> Unit = {
         // 더보기 가능한 상태일 때만 행을 추가한다.
         if (isLoadMore) {
