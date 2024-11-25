@@ -13,7 +13,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.MDSIconText
 import com.hjw.designsystem.theme.MDSColor
 
 @Composable
@@ -36,8 +35,7 @@ fun MDSFooter(
         ),
         onClick = onClick
     ) {
-        MDSIconText(
-            leftIcon = showIcon,
+        MDSFooterText(
             title = title,
             titleColor = MDSColor.Black,
             modifier = Modifier.wrapContentSize(),
