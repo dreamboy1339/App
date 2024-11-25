@@ -27,7 +27,7 @@ fun BannerItemView(
 
     LaunchedEffect(Unit) {
         while (true) {
-            delay(bannerAutoSwipeDuration) // 3초
+            delay(bannerAutoSwipeDuration)
             if (pagerState.currentPage < banners.size - 1) {
                 pagerState.animateScrollToPage(pagerState.currentPage + 1)
             } else {
@@ -56,7 +56,7 @@ fun BannerItemView(
                         fraction = 1f - pageOffset.coerceIn(0f, 1f)
                     )
                 },
-            index = (page + 1),
+            index = page.inc(),
             total = banners.size,
             linkUrl = banner.linkUrl,
             thumbnailUrl = banner.thumbnailUrl,
