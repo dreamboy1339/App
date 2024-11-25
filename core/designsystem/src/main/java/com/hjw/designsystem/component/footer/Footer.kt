@@ -17,10 +17,10 @@ import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MDSFooter(
-    showIcon: Boolean,
     title: String,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
+    iconUrl: String,
 ) {
     Button(
         modifier = modifier,
@@ -39,7 +39,8 @@ fun MDSFooter(
             title = title,
             titleColor = MDSColor.Black,
             modifier = Modifier.wrapContentSize(),
-            textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
+            textStyle = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+            iconUrl = iconUrl
         )
     }
 }
@@ -49,9 +50,9 @@ fun MDSFooter(
 private fun FooterRefreshPreview() {
     AppPreview {
         MDSFooter(
-            showIcon = true,
             title = "새로운 추천",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            iconUrl = "https://image.msscdn.net/icons/mobile/clock.png"
         )
     }
 }
@@ -61,9 +62,9 @@ private fun FooterRefreshPreview() {
 private fun FooterMorePreview() {
     AppPreview {
         MDSFooter(
-            showIcon = false,
             title = "더보기",
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            iconUrl = "https://image.msscdn.net/icons/mobile/clock.png"
         )
     }
 }

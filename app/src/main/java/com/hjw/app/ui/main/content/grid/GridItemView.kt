@@ -54,12 +54,11 @@ fun GridItemView(
 
     val footer = widget.footer
     if (footer != null && isLoadMore) {
-        val type = FooterType.safeValueOf(footer.type)
         MDSFooter(
             modifier = modifier,
             title = footer.title,
-            showIcon = (type == FooterType.REFRESH),
-            onClick = onMoreClick
+            onClick = onMoreClick,
+            iconUrl = footer.iconUrl
         )
     }
 }

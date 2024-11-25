@@ -154,16 +154,16 @@ fun Catalog() {
                 }
                 item {
                     MDSFooter(
-                        showIcon = true,
                         title = "새로운 추천",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        iconUrl = "https://image.msscdn.net/icons/mobile/clock.png"
                     )
                 }
                 item {
                     MDSFooter(
-                        showIcon = false,
                         title = "더보기",
-                        modifier = Modifier.fillMaxWidth()
+                        modifier = Modifier.fillMaxWidth(),
+                        iconUrl = "https://image.msscdn.net/icons/mobile/clock.png"
                     )
                 }
             }

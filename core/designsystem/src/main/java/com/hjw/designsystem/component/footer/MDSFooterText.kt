@@ -4,9 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Refresh
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,13 +14,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.hjw.designsystem.AppPreview
+import com.hjw.designsystem.component.MDSImageIcon
 import com.hjw.designsystem.theme.MDSColor
 import com.hjw.designsystem.theme.Spacing
 
 @Composable
 fun MDSFooterText(
     textStyle: TextStyle,
-
+    iconUrl: String,
     title: String = "",
     titleColor: Color = MaterialTheme.colorScheme.primary,
     modifier: Modifier = Modifier,
@@ -33,10 +31,11 @@ fun MDSFooterText(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(
-            imageVector = Icons.Default.Refresh,
-            contentDescription = "Refresh"
-        )
+        if (iconUrl.isNotBlank()) {
+            Spacer(modifier = Modifier.size(Spacing.xs))
+            MDSImageIcon(iconUrl = iconUrl)
+            Spacer(modifier = Modifier.size(Spacing.xs))
+        }
 
         Spacer(modifier = Modifier.size(Spacing.xs))
 
@@ -55,7 +54,8 @@ fun MDSFooterText(
 private fun MDSFooterTextWithLeftIconPreview() {
     AppPreview {
         MDSFooterText(
-            title = "클리어런스",
+            title = "더보기",
+            iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
             titleColor = MDSColor.Black,
             textStyle = MaterialTheme.typography.titleLarge
         )
@@ -67,7 +67,8 @@ private fun MDSFooterTextWithLeftIconPreview() {
 private fun MDSFooterTextWithRightIconPreview() {
     AppPreview {
         MDSFooterText(
-            title = "클리어런스",
+            title = "새로운 추천",
+            iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
             titleColor = MDSColor.Black,
             textStyle = MaterialTheme.typography.titleLarge,
         )
