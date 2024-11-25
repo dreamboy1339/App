@@ -1,5 +1,6 @@
 package com.hjw.designsystem.component.header
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.hjw.designsystem.AppPreview
-import com.hjw.designsystem.component.MDSIconText
+import com.hjw.designsystem.theme.MDSColor
 
 @Composable
 fun MDSHeader(
@@ -28,8 +29,7 @@ fun MDSHeader(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
-        MDSIconText(
-            rightIcon = true,
+        MDSHeaderTitle(
             title = title,
             iconUrl = iconUrl,
             modifier = Modifier.weight(1f),
@@ -81,7 +81,7 @@ private fun HeaderWithIconUrlPreview() {
 private fun HeaderWithAllParamsPreview() {
     AppPreview {
         MDSHeader(
-            title = "클리어런스",
+            title = "클리어런스클리어런스클리어런스클리어런스",
             iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
             linkUrl = "https://www.musinsa.com/brands/discoveryexpedition?category3DepthCodes=&category2DepthCodes=&category1DepthCode=018&colorCodes=&startPrice=&endPrice=&exclusiveYn=&includeSoldOut=&saleGoods=&timeSale=&includeKeywords=&sortCode=discount_rate&tags=&page=1&size=90&listViewType=small&campaignCode=&groupSale=&outletGoods=false&boutiqueGoods="
         )
