@@ -21,7 +21,7 @@ fun ScrollView(
 ) {
     LazyHorizontalGrid(
         modifier = modifier
-            .height(500.dp),
+            .height(500.dp), // todo : 여기 수정해야 함.
         rows = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_horizontal_spacing)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.scroll_view_vertical_spacing))

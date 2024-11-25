@@ -8,15 +8,14 @@ import androidx.compose.ui.Modifier
 import com.hjw.domain.model.content.Goods
 
 private const val GRID_COLUMN_COUNT = 3
-private const val INIT_GRID_ROW_COUNT = 2
 
 @Composable
 fun GridView(
     goods: Goods,
+    rows: Int,
     columns: Int = GRID_COLUMN_COUNT,
-    rows: Int = INIT_GRID_ROW_COUNT,
-    modifier: Modifier = Modifier,
     onLoadMore: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier
