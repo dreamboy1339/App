@@ -25,9 +25,10 @@ fun StyleRowBase(
     row: Int,
     styles: Styles,
     onLoadMore: (Boolean) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .wrapContentHeight()
     ) {
