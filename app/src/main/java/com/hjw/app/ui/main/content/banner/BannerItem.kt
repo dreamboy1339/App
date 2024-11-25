@@ -1,4 +1,4 @@
-package com.hjw.app.ui.main.content
+package com.hjw.app.ui.main.content.banner
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth

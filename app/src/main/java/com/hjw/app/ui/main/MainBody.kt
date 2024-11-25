@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hjw.app.ui.main.content.BannerItem
+import com.hjw.app.ui.main.content.banner.BannerItem
 import com.hjw.app.ui.main.content.grid.GridItem
 import com.hjw.app.ui.main.content.scroll.ScrollItem
 import com.hjw.app.ui.main.content.style.StyleItem
