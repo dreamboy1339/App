@@ -62,6 +62,13 @@ fun Catalog() {
                 }
                 item {
                     MDSHeader(
+                        modifier = modifier,
+                        title = "Header with icon Header with icon Header with icon",
+                        iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
+                    )
+                }
+                item {
+                    MDSHeader(
                         title = "Header with link",
                         modifier = modifier,
                         linkUrl = "https://www.musinsa.com"
@@ -71,6 +78,14 @@ fun Catalog() {
                     MDSHeader(
                         title = "Header with icon & link",
                         modifier = modifier,
+                        iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
+                        linkUrl = "https://www.musinsa.com"
+                    )
+                }
+                item {
+                    MDSHeader(
+                        modifier = modifier,
+                        title = "Header with icon Header with icon Header with icon",
                         iconUrl = "https://image.msscdn.net/icons/mobile/clock.png",
                         linkUrl = "https://www.musinsa.com"
                     )

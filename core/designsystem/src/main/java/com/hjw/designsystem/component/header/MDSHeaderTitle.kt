@@ -3,9 +3,8 @@ package com.hjw.designsystem.component.header
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,8 +34,8 @@ fun MDSHeaderTitle(
     ) {
         Text(
             modifier = Modifier
-                .fillMaxWidth(0.7f)
-                .wrapContentHeight(),
+                .wrapContentSize()
+                .weight(weight = 0.7f, fill = false),
             text = title,
             overflow = TextOverflow.Ellipsis,
             style = textStyle,
@@ -48,6 +47,7 @@ fun MDSHeaderTitle(
             MDSImageIcon(
                 iconUrl = iconUrl
             )
+            Spacer(modifier = Modifier.size(Spacing.xs))
         }
     }
 }
