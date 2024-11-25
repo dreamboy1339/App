@@ -113,16 +113,3 @@ private fun GridRow(
         }
     }
 }
-
-@Composable
-private fun EmptyProduct(modifier: Modifier) {
-    MDSProduct(
-        modifier = modifier,
-        linkUrl = "",
-        thumbnailUrl = "",
-        brandName = "",
-        price = -1,
-        saleRate = -1,
-        hasCoupon = false
-    )
-}
