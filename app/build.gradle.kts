@@ -49,7 +49,6 @@ android {
 dependencies {
 
     implementation(project(":core:designsystem"))
-    implementation(project(":network"))
     implementation(project(":domain"))
     implementation(project(":di"))
 
