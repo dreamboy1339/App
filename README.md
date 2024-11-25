@@ -1,15 +1,34 @@
 # 👨🏻‍💻 황재우 MUSINSA 안드로이드 개발 과제 저장소 👨🏻‍💻
 
+## Project 환경 구성
+- Android Studio Ladybug | 2024.2.1 Patch 2
+- Java 11
+- Gradle Local Java 21.0.3
+- Android Gradle Plugin 8.7.2
+- Kotlin 2.0.21
+
 ## 개요
 - 📱 상품 전시 화면 만들기
 
 ## Libraries
-- TBD
+- Jetpack Compose
+- AndroidX
+    - Core
+    - ViewModel
+- Material Design
+- Kotlin
+    - Coroutines
+- Dagger Hilt
+- Square
+    - Retrofit, Okhttp
+- Coil
+- Timber Logging
 
 ## Architecture
-- TBD
+- Clean Architecture + MVVM
 
-drawing by https://excalidraw.com/
+<!--suppress CheckImageSize, HtmlRequiredAltAttribute -->
+<img src="./docs/architecture.png" width="480" />
 
 ## Project Structure
 ```
@@ -20,6 +39,8 @@ root
 ├── app-catalog             // 디자인 시스템 기반 카탈로그 앱(디자인 컴포넌트 확인용) 
 |   
 ├── network                 // 네트워크, API 인터페이스
+|   
+├── di                      // 의존성 주입 모듈
 |   
 ├── data                    // 데이터 모델, 레포지토리 구현, 데이터 소스
 |   
